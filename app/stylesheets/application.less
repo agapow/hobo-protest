@@ -1,0 +1,143 @@
+
+@headline_clr: #93B876;
+@main_bg_clr: ivory; /* could be snow */
+@heading_clr: #444;
+@text_clr: #666;
+@discrete-text-clr: @darkgray;
+@darkgray:      #737373;
+
+@page-padding: 75px;
+
+body {
+	background: @headline_clr;
+	margin: 0;
+	padding-top: 5px;
+	width: auto;
+	font: 11px 'Lucida Grande', Verdana, Helvetica, sans-serif;
+}
+
+.page-header {
+	background: @main_bg_clr;
+	color: @heading_clr;
+	
+	margin-left: 0;
+	margin-right: 0;
+	
+	padding: 0;
+	
+	h1 {
+		a {
+			font: normal 165% Georgia, 'Times New Roman', Times, serif;
+			color: @headline_clr;
+		}
+		padding-left: @page-padding;
+		padding-bottom: 10px;
+	}
+	
+	.navigation.main-nav {
+		background: #whitesmoke;
+		
+		padding-top: 3px;
+		padding-left: @page-padding;
+		padding-right: @page-padding;
+
+		border-width-bottom: 1px;
+		border: 0px solid #AAA;
+		border-bottom-width: 1px;
+		
+		a {
+			font: bold 115% 'Trebuchet MS', 'Helvetica Neue', Arial, Sans-Serif;
+			text-transform: uppercase;
+			color: #666;
+			background: inherit;
+			padding-bottom: 3px;
+			
+			:hover {
+				color: black;
+			background: inherit;
+			}
+		}
+		
+		li.current a {
+			border: 1px solid #AAA;
+			border-bottom-width: 0;
+			background: @main_bg_clr;
+		}
+			
+	}
+	
+	.account-nav {
+		margin-right: @page-padding;
+		padding-right: 0;
+	}
+	
+	div.search {
+		padding-right: 0;
+	}
+
+}
+
+
+.section.content {
+	background: @main_bg_clr;
+	color: @text_clr;
+	
+	padding-left: @page-padding;
+	padding-right: @page-padding;
+	
+	font: 11px/165% 'Lucida Grande', Verdana, Helvetica, sans-serif;
+	
+	h1, h2, h3, h4 {
+		font-face: Georgia, 'Times New Roman', Times, Serif;
+		color: #444;
+	}
+	
+	h2 {
+		font: normal 3.7em Georgia, 'Times New Roman', Times, Serif;
+	}
+	
+	h3 {
+		font: normal 2em Georgia, 'Times New Roman', Times, Serif;
+	}
+	
+	h4 {
+		font: bold 1em/1.5em Georgia, 'Times New Roman', Times, serif;
+		color: headline_clr;
+	}
+	
+	
+}
+
+.content-header, .content-body, .content-footer {
+	margin: 0 0 0px;
+	padding: 0 0 30px;
+}
+
+
+/* FOOTER */
+
+.page-footer {
+	background: whitesmoke no-repeat bottom right; 
+	border-top: 1px solid  #CCC;
+	font-size: 12px;
+	line-height: 10px;
+	margin-top: 0;
+	height: 30px;
+
+	ul {
+		list-style-type: none;
+		
+		li {
+			float: left;
+			border-right: 1px solid #E67E00;
+			margin: 10;
+			padding: 0 15px 0px 0px;
+			
+			a {
+				border:none;
+				color: @discrete-text-clr;
+			}
+		}
+	}
+
+}

@@ -1,9 +1,45 @@
 <!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
 
+<def tag="form" for="Lab">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country_name" param/>
+    <div param="actions">
+      <submit label="#{ht 'labs.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="TrialSeries">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, description, users" param/>
+    <div param="actions">
+      <submit label="#{ht 'trial_series.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Trial">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, closes, trial_series, users" param/>
+    <div param="actions">
+      <submit label="#{ht 'trials.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
 <def tag="form" for="User">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, email_address, administrator, state" param/>
+    <field-list fields="name, user_name, email_address, administrator, state, trial_series, trials" param/>
     <div param="actions">
       <submit label="#{ht 'users.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -14,7 +50,7 @@
 <def tag="signup-form" for="User">
   <form lifecycle="signup" merge param="default">
     <error-messages param/>
-    <field-list fields="name, email_address, password, password_confirmation" param/>
+    <field-list fields="name, user_name, email_address, password, password_confirmation" param/>
     <div param="actions">
       <submit label="#{ht 'users.actions.signup', :default=>['Signup']}" param/><or-cancel param="cancel"/>
     </div>

@@ -4,6 +4,52 @@
 <include src="taglibs/auto/rapid/pages"/>
 <include src="taglibs/auto/rapid/forms"/>
 
-<set-theme name="clean"/>
+<set-theme name="simplegreen"/>
 
-<def tag="app-name">Profess</def>
+<def tag="app-name">ProTest</def>
+
+<%#
+Change the overall page layout.
+
+This effects three changes:
+* inserting the favicon in the page
+* inserting the page sidebar
+* inserting the default footer.
+
+XXX: merge without live search?
+%>
+<extend tag="page" attrs="title, full-title">
+  <old-page merge>
+
+	<header:>
+		<account-nav if="&login_url(Hobo::User.default_user_model)" />
+		<main-nav current="&title" />
+		<h1><a href="#{base_url}/"><app-name/></a></h1>
+	</header:>
+
+	<footer:>
+		<footer-nav/>
+	</footer:>
+	
+  </old-page>
+</extend>
+
+<def tag="main-nav">
+	<navigation class="main-nav" merge-attrs param="default">
+		<nav-item href="#{base_url}/">Home</nav-item>
+		<nav-item with="&Trial"><ht key="thresholds.nav_item">Threshold reports</ht></nav-item>
+		<nav-item with="&Trial"><ht key="susceptibilities.nav_item">Resistance reports</ht></nav-item>
+		<nav-item href="#{base_url}/tools/">Tools</nav-item>
+		<live-search if="&defined_route? :site_search"/>
+	</navigation>
+</def>
+
+<def tag="footer-nav">
+	<ul>
+		<nav-item href="http://www.hpa.org.uk/">hpa.org.uk</nav-item>
+		<nav-item href="/docs/site_map">Site Map</nav-item>
+		<nav-item href="/">Policies and Links</nav-item>
+		<nav-item href="/docs/contact">Contact</nav-item>
+	</ul>
+</def>
+

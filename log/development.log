@@ -248,3 +248,3909 @@ Migrating to AddedTrialseriesTrialsAndCountries (20110304145151)
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trials")[0m
   [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_state')[0m
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("labs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_state')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trials")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trials")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trial_series")[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSetupAndUserCreation (20110304143612)
+Migrating to AddedTrialseriesTrialsAndCountries (20110304145151)
+Migrating to RenamedAndChangedTrialClose (20110307114027)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (4.7ms)[0m   [0mALTER TABLE "trials" ADD "closes" datetime[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mALTER TABLE "trials" ADD "trial_series_id" integer[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TEMPORARY TABLE "altered_trials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "closeDate" date, "created_at" datetime, "updated_at" datetime, "closes" datetime, "trial_series_id" integer) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trials")[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mDROP TABLE "trials"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "trials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "created_at" datetime, "updated_at" datetime, "closes" datetime, "trial_series_id" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("altered_trials")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mDROP TABLE "altered_trials"[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mALTER TABLE "trial_series" ADD "description" text[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trials")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE INDEX "index_trials_on_trial_series_id" ON "trials" ("trial_series_id")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110307114027')[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("labs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trial_series")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trials")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_trials_on_trial_series_id')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_state')[0m
+  [4;36;1mSQL (3.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("labs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_state')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trials")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_trials_on_trial_series_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trial_series")[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (6.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (17.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("labs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_state')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trials")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_trials_on_trial_series_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trial_series")[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("labs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_state')[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mPRAGMA index_list("trials")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mPRAGMA index_info('index_trials_on_trial_series_id')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("trial_series")[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to InitialSetupAndUserCreation (20110304143612)
+Migrating to AddedTrialseriesTrialsAndCountries (20110304145151)
+Migrating to RenamedAndChangedTrialClose (20110307114027)
+Migrating to AddedTrialAndSeriesManagers (20110307120313)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (21.6ms)[0m   [0mCREATE TABLE "trial_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "trial_id" integer) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trial_managers")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_trial_managers_on_user_id" ON "trial_managers" ("user_id")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trial_managers")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_trial_managers_on_user_id')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE INDEX "index_trial_managers_on_trial_id" ON "trial_managers" ("trial_id")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE TABLE "series_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "trial_series_id" integer) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("series_managers")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE INDEX "index_series_managers_on_user_id" ON "series_managers" ("user_id")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("series_managers")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_series_managers_on_user_id')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_series_managers_on_trial_series_id" ON "series_managers" ("trial_series_id")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mALTER TABLE "users" ADD "user_name" varchar(255)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110307120313')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("labs")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("series_managers")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_series_managers_on_trial_series_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_series_managers_on_user_id')[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mPRAGMA index_list("trial_managers")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_trial_managers_on_trial_id')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_trial_managers_on_user_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("trial_series")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("trials")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_trials_on_trial_series_id')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_state')[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 12:52:13) [GET]
+Rendering front/index
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/core.dryml in 0.02s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_core.dryml in 0.18s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_support.dryml in 0.01s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_document_tags.dryml in 0.03s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_pages.dryml in 0.18s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_editing.dryml in 0.08s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_forms.dryml in 0.31s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_navigation.dryml in 0.06s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_plus.dryml in 0.14s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_generics.dryml in 0.03s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_lifecycles.dryml in 0.01s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_summary.dryml in 0.10s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_user_pages.dryml in 0.28s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid.dryml in 1.48s
+  DRYML: Compiled app/views/taglibs/auto/rapid/cards.dryml in 0.06s
+  DRYML: Compiled app/views/taglibs/auto/rapid/pages.dryml in 0.56s
+  DRYML: Compiled app/views/taglibs/auto/rapid/forms.dryml in 0.07s
+  DRYML: Compiled app/views/taglibs/themes/clean/clean.dryml in 0.07s
+  DRYML: Compiled app/views/taglibs/application.dryml in 2.27s
+  DRYML: Compiled app/views/front/index.dryml in 2.46s
+  [4;36;1mUser Load (5.3ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (3.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 2769ms (View: 2746, DB: 19) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:06:03) [GET]
+Rendering front/index
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/core.dryml in 0.02s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_core.dryml in 0.19s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_support.dryml in 0.01s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_document_tags.dryml in 0.03s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_pages.dryml in 0.18s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_editing.dryml in 0.07s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_forms.dryml in 0.30s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_navigation.dryml in 0.06s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_plus.dryml in 0.15s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_generics.dryml in 0.03s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_lifecycles.dryml in 0.01s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_summary.dryml in 0.09s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_user_pages.dryml in 0.27s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid.dryml in 1.42s
+  DRYML: Compiled app/views/taglibs/auto/rapid/cards.dryml in 0.05s
+  DRYML: Compiled app/views/taglibs/auto/rapid/pages.dryml in 0.52s
+  DRYML: Compiled app/views/taglibs/auto/rapid/forms.dryml in 0.07s
+  DRYML: Compiled app/views/taglibs/themes/simplegreen/simplegreen.dryml in 0.07s
+  DRYML: Compiled app/views/taglibs/application.dryml in 2.14s
+  DRYML: Compiled app/views/front/index.dryml in 2.28s
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 2512ms (View: 2499, DB: 10) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:09:09) [GET]
+Rendering front/index
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/core.dryml in 0.04s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_core.dryml in 0.37s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_support.dryml in 0.03s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_document_tags.dryml in 0.06s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_pages.dryml in 0.24s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_editing.dryml in 0.23s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_forms.dryml in 0.51s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_navigation.dryml in 0.11s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_plus.dryml in 0.23s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_generics.dryml in 0.05s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_lifecycles.dryml in 0.02s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_summary.dryml in 0.15s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_user_pages.dryml in 0.29s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid.dryml in 2.34s
+  DRYML: Compiled app/views/taglibs/auto/rapid/cards.dryml in 0.05s
+  DRYML: Compiled app/views/taglibs/auto/rapid/pages.dryml in 0.53s
+  DRYML: Compiled app/views/taglibs/auto/rapid/forms.dryml in 0.07s
+  DRYML: Compiled app/views/taglibs/themes/simplegreen/simplegreen.dryml in 0.02s
+  DRYML: Compiled app/views/taglibs/application.dryml in 3.03s
+  DRYML: Compiled app/views/front/index.dryml in 3.19s
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 6709ms (View: 3775, DB: 10) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (6.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:21:02) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.9ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 682ms (View: 611, DB: 22) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:21:28) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 409ms (View: 377, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:24:27) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 435ms (View: 395, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:25:13) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 359ms (View: 319, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (6.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:27:24) [GET]
+Rendering front/index
+  [4;35;1mUser Load (6.0ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1363ms (View: 648, DB: 24) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:27:46) [GET]
+Rendering front/index
+  [4;36;1mUser Load (6.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 666ms (View: 610, DB: 20) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:28:07) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 598ms (View: 542, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:28:38) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 851ms (View: 340, DB: 20) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:31:24) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 479ms (View: 435, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:32:13) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.3ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 441ms (View: 393, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:33:31) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 425ms (View: 377, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:34:44) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 458ms (View: 410, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:35:06) [GET]
+Rendering front/index
+  [4;35;1mUser Load (6.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 511ms (View: 447, DB: 19) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:35:23) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 430ms (View: 379, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:38:17) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 498ms (View: 378, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (7.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:39:18) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1198ms (View: 403, DB: 20) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:41:03) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 484ms (View: 460, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:43:32) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.9ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 499ms (View: 436, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:44:46) [GET]
+Rendering front/index
+  [4;35;1mUser Load (71.3ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 497ms (View: 362, DB: 84) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (18.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:44:58) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (14.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 448ms (View: 368, DB: 43) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:45:08) [GET]
+Rendering front/index
+  [4;35;1mUser Load (5.0ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 467ms (View: 404, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:47:23) [GET]
+Rendering front/index
+  [4;36;1mUser Load (9.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 544ms (View: 472, DB: 23) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:48:00) [GET]
+
+Less::SyntaxError (on line 34: expected one of ( [ / got : after:
+
+.page-header {
+  background: @main_bg_clr;
+  color: @heading_clr;
+  
+  margin-left: 0;
+  margin-right: 0;
+  
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  
+  h1 a {
+    font: normal 165% Georgia, 'Times New Roman', Times, serif;
+    color: @headline_clr;
+  }
+  
+  .navigation.main-nav {
+    background: #CCC;
+    a {
+      text-transform: uppercase;
+      color: #111
+      background
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (45.2ms)
+Rendered rescues/_request_and_response (41.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:48:17) [GET]
+
+Less::SyntaxError (on line 34: expected one of ( [ / got : after:
+
+.page-header {
+  background: @main_bg_clr;
+  color: @heading_clr;
+  
+  margin-left: 0;
+  margin-right: 0;
+  
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  
+  h1 a {
+    font: normal 165% Georgia, 'Times New Roman', Times, serif;
+    color: @headline_clr;
+  }
+  
+  .navigation.main-nav {
+    background: #CCC;
+    a {
+      text-transform: uppercase;
+      color: #111
+      background
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (47.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:48:19) [GET]
+
+Less::SyntaxError (on line 34: expected one of ( [ / got : after:
+
+.page-header {
+  background: @main_bg_clr;
+  color: @heading_clr;
+  
+  margin-left: 0;
+  margin-right: 0;
+  
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  
+  h1 a {
+    font: normal 165% Georgia, 'Times New Roman', Times, serif;
+    color: @headline_clr;
+  }
+  
+  .navigation.main-nav {
+    background: #CCC;
+    a {
+      text-transform: uppercase;
+      color: #111
+      background
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (45.4ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (5.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:48:49) [GET]
+
+Less::SyntaxError (on line 34: expected one of ( [ / got : after:
+
+.page-header {
+  background: @main_bg_clr;
+  color: @heading_clr;
+  
+  margin-left: 0;
+  margin-right: 0;
+  
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  
+  h1 a {
+    font: normal 165% Georgia, 'Times New Roman', Times, serif;
+    color: @headline_clr;
+  }
+  
+  .navigation.main-nav {
+    background: #CCC;
+    a {
+      text-transform: uppercase;
+      color: #111
+      background
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (51.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:48:52) [GET]
+
+Less::SyntaxError (on line 34: expected one of ( [ / got : after:
+
+.page-header {
+  background: @main_bg_clr;
+  color: @heading_clr;
+  
+  margin-left: 0;
+  margin-right: 0;
+  
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  
+  h1 a {
+    font: normal 165% Georgia, 'Times New Roman', Times, serif;
+    color: @headline_clr;
+  }
+  
+  .navigation.main-nav {
+    background: #CCC;
+    a {
+      text-transform: uppercase;
+      color: #111
+      background
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (44.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (6.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 13:49:18) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 956ms (View: 348, DB: 23) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:00:03) [GET]
+Rendering front/index
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/core.dryml in 0.03s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_core.dryml in 0.21s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_support.dryml in 0.02s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_document_tags.dryml in 0.04s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_pages.dryml in 0.19s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_editing.dryml in 0.12s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_forms.dryml in 0.34s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_navigation.dryml in 0.06s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_plus.dryml in 0.15s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_generics.dryml in 0.03s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_lifecycles.dryml in 0.01s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_summary.dryml in 0.12s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid_user_pages.dryml in 0.29s
+  DRYML: Compiled /home/f0/paul/.rvm/gems/ruby-1.9.2-p136/gems/hobo-1.0.2/taglibs/rapid.dryml in 1.69s
+  DRYML: Compiled app/views/taglibs/auto/rapid/cards.dryml in 0.06s
+  DRYML: Compiled app/views/taglibs/auto/rapid/pages.dryml in 0.57s
+  DRYML: Compiled app/views/taglibs/auto/rapid/forms.dryml in 0.08s
+  DRYML: Compiled app/views/taglibs/themes/simplegreen/simplegreen.dryml in 0.02s
+  DRYML: Compiled app/views/taglibs/application.dryml in 2.44s
+  DRYML: Compiled app/views/front/index.dryml in 2.58s
+  [4;36;1mUser Load (4.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0x983c29c>) on line #1 of app/views/front/index.dryml:
+1: <page title="Home">
+2: 
+3:   <body: class="front-page"/>
+4: 
+
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:605:in `method_missing'
+    app/views/taglibs/application.dryml:18:in `block (4 levels) in page_with_aa489cf972a2'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    app/views/taglibs/application.dryml:14:in `block (3 levels) in page_with_aa489cf972a2'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:36:in `block in header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:35:in `header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:464:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:40:in `block (6 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:38:in `block (5 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (4 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (3 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block (2 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `block in call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/core.dryml:55:in `block in do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/core.dryml:55:in `do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:381:in `call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:403:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block (2 levels) in html'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block in html'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:160:in `html'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:14:in `page'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:2:in `block in page_with_aaa82d3a9ca5'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:1:in `page_with_aaa82d3a9ca5'
+    app/views/taglibs/application.dryml:12:in `block in page_with_aa489cf972a2'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/application.dryml:11:in `page_with_aa489cf972a2'
+    app/views/front/index.dryml:1:in `block in render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:267:in `block in new_object_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:255:in `new_object_context'
+    app/views/front/index.dryml:1:in `render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:22:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (196.5ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:00:33) [GET]
+Rendering front/index
+
+ActionView::TemplateError (mixed parameter tags and non-parameter tags (did you forget a ':'?) -- at app/views/taglibs/application.dryml:14) in app/views/front/index.dryml:
+
+    hobo (1.0.2) lib/hobo/dryml/template.rb:984:in `dryml_exception'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:629:in `block in parameter_tags_hash'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `parameter_tags_hash'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:764:in `param_proc'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:685:in `parameter_tag_hash_item'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:633:in `block in parameter_tags_hash'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `parameter_tags_hash'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:555:in `tag_call'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:168:in `element_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:122:in `node_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `block in children_to_erb'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `children_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:382:in `tag_method_body'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:362:in `tag_method'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:307:in `def_element'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:250:in `extend_element'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:155:in `element_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:122:in `node_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `block in children_to_erb'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `children_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:93:in `process_src'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:62:in `compile'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:91:in `load'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:53:in `initialize'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:17:in `new'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:17:in `get'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:121:in `import_taglib'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `block in build'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `each'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `build'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:73:in `compile'
+    hobo (1.0.2) lib/hobo/dryml.rb:173:in `compile_renderer_class'
+    hobo (1.0.2) lib/hobo/dryml.rb:159:in `make_renderer_class'
+    hobo (1.0.2) lib/hobo/dryml.rb:112:in `page_renderer'
+    hobo (1.0.2) lib/hobo/dryml.rb:78:in `page_renderer_for_template'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:19:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (89.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (5.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:05:36) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.28s
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 413ms (View: 401, DB: 9) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:07:41) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.31s
+  [4;36;1mUser Load (66.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 455ms (View: 371, DB: 79) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:08:07) [GET]
+Rendering front/index
+
+ActionView::TemplateError (mixed parameter tags and non-parameter tags (did you forget a ':'?) -- at app/views/taglibs/application.dryml:14) in app/views/front/index.dryml:
+
+    hobo (1.0.2) lib/hobo/dryml/template.rb:984:in `dryml_exception'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:627:in `block in parameter_tags_hash'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `parameter_tags_hash'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:764:in `param_proc'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:685:in `parameter_tag_hash_item'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:633:in `block in parameter_tags_hash'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `parameter_tags_hash'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:555:in `tag_call'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:168:in `element_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:122:in `node_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `block in children_to_erb'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `children_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:382:in `tag_method_body'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:362:in `tag_method'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:307:in `def_element'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:250:in `extend_element'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:155:in `element_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:122:in `node_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `block in children_to_erb'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `children_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:93:in `process_src'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:62:in `compile'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:91:in `load'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:53:in `initialize'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:17:in `new'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:17:in `get'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:121:in `import_taglib'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `block in build'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `each'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `build'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:73:in `compile'
+    hobo (1.0.2) lib/hobo/dryml.rb:173:in `compile_renderer_class'
+    hobo (1.0.2) lib/hobo/dryml.rb:159:in `make_renderer_class'
+    hobo (1.0.2) lib/hobo/dryml.rb:112:in `page_renderer'
+    hobo (1.0.2) lib/hobo/dryml.rb:78:in `page_renderer_for_template'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:19:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (95.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:08:44) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.32s
+  [4;35;1mUser Load (3.4ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0xaaa2a30>) on line #1 of app/views/front/index.dryml:
+1: <page title="Home">
+2: 
+3:   <body: class="front-page"/>
+4: 
+
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:605:in `method_missing'
+    app/views/taglibs/application.dryml:18:in `block (4 levels) in page_with_aa489cf972a2'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    app/views/taglibs/application.dryml:14:in `block (3 levels) in page_with_aa489cf972a2'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:36:in `block in header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:35:in `header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:464:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:40:in `block (6 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:38:in `block (5 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (4 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (3 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block (2 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `block in call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/core.dryml:55:in `block in do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/core.dryml:55:in `do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:381:in `call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:403:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block (2 levels) in html'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block in html'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:160:in `html'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:14:in `page'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:2:in `block in page_with_aaa82d3a9ca5'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:1:in `page_with_aaa82d3a9ca5'
+    app/views/taglibs/application.dryml:12:in `block in page_with_aa489cf972a2'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/application.dryml:11:in `page_with_aa489cf972a2'
+    app/views/front/index.dryml:1:in `block in render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:267:in `block in new_object_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:255:in `new_object_context'
+    app/views/front/index.dryml:1:in `render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:22:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (128.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (7.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:09:00) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.31s
+  [4;36;1mUser Load (4.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0xaa38478>) on line #1 of app/views/front/index.dryml:
+1: <page title="Home">
+2: 
+3:   <body: class="front-page"/>
+4: 
+
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:605:in `method_missing'
+    app/views/taglibs/application.dryml:18:in `block (4 levels) in page_with_a7e93f67f7c8'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    app/views/taglibs/application.dryml:14:in `block (3 levels) in page_with_a7e93f67f7c8'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:36:in `block in header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:35:in `header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:464:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:40:in `block (6 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:38:in `block (5 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (4 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (3 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block (2 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `block in call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/core.dryml:55:in `block in do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/core.dryml:55:in `do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:381:in `call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:403:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block (2 levels) in html'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block in html'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:160:in `html'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:14:in `page'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:2:in `block in page_with_aaa82d3a9ca5'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:1:in `page_with_aaa82d3a9ca5'
+    app/views/taglibs/application.dryml:12:in `block in page_with_a7e93f67f7c8'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/application.dryml:11:in `page_with_a7e93f67f7c8'
+    app/views/front/index.dryml:1:in `block in render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:267:in `block in new_object_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:255:in `new_object_context'
+    app/views/front/index.dryml:1:in `render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:22:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (129.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:09:49) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.32s
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0xa9ecb90>) on line #1 of app/views/front/index.dryml:
+1: <page title="Home">
+2: 
+3:   <body: class="front-page"/>
+4: 
+
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:605:in `method_missing'
+    app/views/taglibs/application.dryml:18:in `block (4 levels) in page_with_ab094d07e4d4'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    app/views/taglibs/application.dryml:14:in `block (3 levels) in page_with_ab094d07e4d4'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:36:in `block in header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:35:in `header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:464:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:40:in `block (6 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:38:in `block (5 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (4 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (3 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block (2 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `block in call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/core.dryml:55:in `block in do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/core.dryml:55:in `do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:381:in `call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:403:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block (2 levels) in html'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block in html'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:160:in `html'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:14:in `page'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:2:in `block in page_with_aaa82d3a9ca5'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:1:in `page_with_aaa82d3a9ca5'
+    app/views/taglibs/application.dryml:12:in `block in page_with_ab094d07e4d4'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/application.dryml:11:in `page_with_ab094d07e4d4'
+    app/views/front/index.dryml:1:in `block in render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:267:in `block in new_object_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:255:in `new_object_context'
+    app/views/front/index.dryml:1:in `render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:22:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (131.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:10:04) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.31s
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 444ms (View: 424, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:10:56) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.32s
+  [4;36;1mUser Load (5.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed in 399ms (View: 374, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:11:05) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.51s
+  [4;36;1mUser Load (5.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 628ms (View: 598, DB: 21) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (6.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:19:29) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.36s
+  [4;35;1mUser Load (3.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 443ms (View: 420, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:20:37) [GET]
+Rendering front/index
+
+ActionView::TemplateError (mixed parameter tags and non-parameter tags (did you forget a ':'?) -- at app/views/taglibs/application.dryml:24) in app/views/front/index.dryml:
+
+    hobo (1.0.2) lib/hobo/dryml/template.rb:984:in `dryml_exception'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:629:in `block in parameter_tags_hash'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `parameter_tags_hash'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:764:in `param_proc'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:685:in `parameter_tag_hash_item'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:633:in `block in parameter_tags_hash'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:609:in `parameter_tags_hash'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:555:in `tag_call'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:168:in `element_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:122:in `node_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `block in children_to_erb'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `children_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:382:in `tag_method_body'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:362:in `tag_method'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:307:in `def_element'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:250:in `extend_element'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:155:in `element_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:122:in `node_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `block in children_to_erb'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/rexml/parent.rb:41:in `each'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `map'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:104:in `children_to_erb'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:93:in `process_src'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:62:in `compile'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:91:in `load'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:53:in `initialize'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:17:in `new'
+    hobo (1.0.2) lib/hobo/dryml/taglib.rb:17:in `get'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:121:in `import_taglib'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `block in build'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `each'
+    hobo (1.0.2) lib/hobo/dryml/dryml_builder.rb:76:in `build'
+    hobo (1.0.2) lib/hobo/dryml/template.rb:73:in `compile'
+    hobo (1.0.2) lib/hobo/dryml.rb:173:in `compile_renderer_class'
+    hobo (1.0.2) lib/hobo/dryml.rb:159:in `make_renderer_class'
+    hobo (1.0.2) lib/hobo/dryml.rb:112:in `page_renderer'
+    hobo (1.0.2) lib/hobo/dryml.rb:78:in `page_renderer_for_template'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:19:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (97.9ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:21:10) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.32s
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 465ms (View: 436, DB: 21) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:21:30) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.31s
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (40.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 424ms (View: 361, DB: 56) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:21:43) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.38s
+  [4;36;1mUser Load (6.3ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 463ms (View: 439, DB: 19) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:21:51) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.29s
+  [4;35;1mUser Load (3.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 430ms (View: 408, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (6.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:23:36) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.36s
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+
+ActionView::TemplateError (uninitialized constant Threshold) on line #1 of app/views/front/index.dryml:
+1: <page title="Home">
+2: 
+3:   <body: class="front-page"/>
+4: 
+
+    app/views/taglibs/application.dryml:37:in `block (3 levels) in main_nav'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    app/views/taglibs/application.dryml:35:in `block (2 levels) in main_nav'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `block in call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/core.dryml:55:in `block in do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/core.dryml:55:in `do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:381:in `call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:403:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_navigation.dryml:33:in `block (3 levels) in navigation'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_navigation.dryml:32:in `block (2 levels) in navigation'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_navigation.dryml:31:in `block in navigation'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_navigation.dryml:30:in `navigation'
+    app/views/taglibs/application.dryml:35:in `block in main_nav'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/application.dryml:34:in `main_nav'
+    app/views/taglibs/application.dryml:26:in `block (4 levels) in page_with_abb2b89f8270'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    app/views/taglibs/application.dryml:24:in `block (3 levels) in page_with_abb2b89f8270'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:455:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:36:in `block in header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_document_tags.dryml:35:in `header'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:464:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:40:in `block (6 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:38:in `block (5 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (4 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `block in override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:447:in `override_and_call_tag'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:427:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:37:in `block (3 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block (2 levels) in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `call'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:377:in `block in call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `call'
+    hobo (1.0.2) lib/hobo/dryml/tag_parameters.rb:21:in `method_missing'
+    hobo (1.0.2) taglibs/core.dryml:55:in `block in do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/core.dryml:55:in `do_'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:381:in `call_tag_parameter_with_default_content'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:403:in `call_tag_parameter'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block (2 levels) in html'
+    hobo (1.0.2) lib/hobo/dryml/scoped_variables.rb:20:in `new_scope'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:165:in `block in html'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:160:in `html'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:16:in `block in page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    hobo (1.0.2) taglibs/rapid_pages.dryml:14:in `page'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:2:in `block in page_with_aaa82d3a9ca5'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/themes/simplegreen/simplegreen.dryml:1:in `page_with_aaa82d3a9ca5'
+    app/views/taglibs/application.dryml:22:in `block in page_with_abb2b89f8270'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `block in _tag_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:328:in `_tag_context'
+    app/views/taglibs/application.dryml:21:in `page_with_abb2b89f8270'
+    app/views/front/index.dryml:1:in `block in render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:267:in `block in new_object_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `block in new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:248:in `new_context'
+    hobo (1.0.2) lib/hobo/dryml/template_environment.rb:255:in `new_object_context'
+    app/views/front/index.dryml:1:in `render_page'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:22:in `render_for_rails22'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:142:in `block in render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:138:in `render_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:106:in `render_with_dryml'
+    hobo (1.0.2) lib/hobo/dryml/template_handler.rb:83:in `render_for_file_with_dryml'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `call'
+    hobo (1.0.2) lib/hobo/controller.rb:23:in `block (2 levels) in included_in_class'
+    <internal:prelude>:10:in `synchronize'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+    /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (172.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:24:12) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.31s
+  [4;35;1mUser Load (3.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 436ms (View: 416, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (6.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:26:54) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.31s
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 499ms (View: 480, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (6.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:28:11) [GET]
+Rendering front/index
+  [4;35;1mUser Load (5.4ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 646ms (View: 535, DB: 21) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:28:33) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 474ms (View: 409, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:31:17) [GET]
+
+Less::SyntaxError (on line 32: expected one of , ; } got ' after:
+
+.page-header {
+  background: @main_bg_clr;
+  color: @heading_clr;
+  
+  margin-left: 0;
+  margin-right: 0;
+  
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  
+  h1 a {
+    font: normal 165% Georgia, 'Times New Roman', Times, serif;
+    color: @headline_clr;
+  }
+  
+  .navigation.main-nav {
+    background: #DDD;
+    a {
+      font: font: bold 14px/40px 
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (44.1ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (7.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:31:29) [GET]
+Rendering front/index
+  [4;35;1mUser Load (5.9ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (7.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 786ms (View: 666, DB: 27) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:31:45) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 476ms (View: 343, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:31:58) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.1ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 521ms (View: 442, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:32:06) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 528ms (View: 440, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (7.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:32:47) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 619ms (View: 367, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (6.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:33:10) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.4ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 508ms (View: 427, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:33:24) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.9ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 539ms (View: 457, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:33:39) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.8ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 422ms (View: 341, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:33:55) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.0ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 536ms (View: 456, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (8.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:35:34) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.4ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1921ms (View: 417, DB: 19) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:36:00) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 436ms (View: 358, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:36:48) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.39s
+  [4;36;1mUser Load (4.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 471ms (View: 450, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:37:15) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.40s
+  [4;35;1mUser Load (4.1ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 477ms (View: 458, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:38:47) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.46s
+  [4;36;1mUser Load (5.4ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 654ms (View: 575, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:39:13) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 423ms (View: 335, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:40:06) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 487ms (View: 408, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:40:25) [GET]
+Rendering front/index
+  [4;35;1mUser Load (5.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 516ms (View: 428, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (6.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:42:40) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 453ms (View: 365, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (9.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:43:06) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1303ms (View: 400, DB: 19) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:43:17) [GET]
+Rendering front/index
+  [4;36;1mUser Load (65.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 495ms (View: 349, DB: 74) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (3.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:43:30) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 430ms (View: 348, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (6.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:44:49) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.8ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 515ms (View: 435, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:45:55) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 992ms (View: 449, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:47:04) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.9ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 431ms (View: 343, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:47:14) [GET]
+Rendering front/index
+  [4;35;1mUser Load (5.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 547ms (View: 440, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (7.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:47:23) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 784ms (View: 656, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (6.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:48:30) [GET]
+Rendering front/index
+  [4;35;1mUser Load (6.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 555ms (View: 385, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:49:33) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 740ms (View: 442, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:49:50) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 440ms (View: 350, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:50:01) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 555ms (View: 384, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:50:39) [GET]
+Rendering front/index
+  [4;35;1mUser Load (6.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 505ms (View: 413, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:51:37) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.8ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.6ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 440ms (View: 343, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (6.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:53:06) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1373ms (View: 428, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (6.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:54:06) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (8.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 876ms (View: 700, DB: 25) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:56:45) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (7.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 641ms (View: 504, DB: 22) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (26.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (10.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:56:59) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.9ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (9.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1020ms (View: 874, DB: 65) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:57:15) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (18.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1434ms (View: 1272, DB: 31) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (39.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:58:03) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1365ms (View: 961, DB: 50) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 14:58:53) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.9ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 743ms (View: 612, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:01:26) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.3ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 418ms (View: 327, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (6.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:02:11) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.9ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1031ms (View: 425, DB: 17) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:02:32) [GET]
+Rendering front/index
+  [4;36;1mUser Load (62.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 480ms (View: 327, DB: 73) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:02:55) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 413ms (View: 321, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:03:03) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 473ms (View: 384, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:03:17) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.4ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 476ms (View: 385, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:04:01) [GET]
+
+Less::SyntaxError (on line 82: expected one of @import * - @ :: : . # [ @media @font-face /* // } got ; after:
+
+.section.content {
+  background: @main_bg_clr;
+  color: @text_clr;
+  
+  margin-left: @page-padding;
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (46.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:04:08) [GET]
+
+Less::SyntaxError (on line 82: expected one of @import * - @ :: : . # [ @media @font-face /* // } got ; after:
+
+.section.content {
+  background: @main_bg_clr;
+  color: @text_clr;
+  
+  margin-left: @page-padding;
+
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine.rb:37:in `parse'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (42.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (4.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:04:20) [GET]
+Rendering front/index
+  [4;36;1mUser Load (4.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 554ms (View: 457, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:04:39) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 593ms (View: 349, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:06:10) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 494ms (View: 405, DB: 14) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (8.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:06:35) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1689ms (View: 378, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (21.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:17:50) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 489ms (View: 336, DB: 30) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:24:08) [GET]
+Rendering front/index
+  [4;35;1mUser Load (5.3ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 884ms (View: 661, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:24:31) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 907ms (View: 707, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (12.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:30:06) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.35s
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 498ms (View: 479, DB: 21) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:30:27) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/application.dryml in 0.38s
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 444ms (View: 426, DB: 12) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:31:22) [GET]
+
+Less::VariableNameError (@discrete-text-clr in a
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine/nodes/element.rb:179:in `block in nearest'
+  less (1.2.21) lib/less/ext.rb:34:in `tap'
+  less (1.2.21) lib/less/engine/nodes/element.rb:176:in `nearest'
+  less (1.2.21) lib/less/engine/nodes/property.rb:59:in `nearest'
+  less (1.2.21) lib/less/engine/nodes/property.rb:113:in `rescue in evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:110:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:220:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:66:in `block in evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:66:in `map'
+  less (1.2.21) lib/less/engine/nodes/property.rb:66:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:77:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:150:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:147:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:147:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (66.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (5.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:31:48) [GET]
+
+Less::VariableNameError (@darkgray in *
+From /home/f0/paul/Projects/Protest/Db-dev/protest/app/stylesheets/application.less):
+  less (1.2.21) lib/less/engine/nodes/element.rb:179:in `block in nearest'
+  less (1.2.21) lib/less/ext.rb:34:in `tap'
+  less (1.2.21) lib/less/engine/nodes/element.rb:176:in `nearest'
+  less (1.2.21) lib/less/engine/nodes/property.rb:59:in `nearest'
+  less (1.2.21) lib/less/engine/nodes/property.rb:113:in `rescue in evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:110:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:220:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:196:in `block in evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:196:in `map'
+  less (1.2.21) lib/less/engine/nodes/property.rb:196:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:107:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:115:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:220:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:66:in `block in evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:66:in `map'
+  less (1.2.21) lib/less/engine/nodes/property.rb:66:in `evaluate'
+  less (1.2.21) lib/less/engine/nodes/property.rb:77:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:150:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:147:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:147:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:164:in `block in to_css'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `map'
+  less (1.2.21) lib/less/engine/nodes/element.rb:163:in `to_css'
+  less (1.2.21) lib/less/engine.rb:45:in `to_css'
+  <internal:prelude>:10:in `synchronize'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/f0/paul/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered rescues/_trace (102.7ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (4.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:32:06) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 507ms (View: 351, DB: 12) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (11.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:33:08) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.3ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (4.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 959ms (View: 497, DB: 25) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (15.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (9.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:33:53) [GET]
+Rendering front/index
+  [4;35;1mUser Load (117.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 1039ms (View: 690, DB: 149) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:34:36) [GET]
+Rendering front/index
+  [4;36;1mUser Load (7.4ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 895ms (View: 624, DB: 18) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (5.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:35:17) [GET]
+Rendering front/index
+  [4;35;1mUser Load (6.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 844ms (View: 538, DB: 21) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:35:30) [GET]
+Rendering front/index
+  [4;36;1mUser Load (5.1ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 899ms (View: 655, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (5.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:36:11) [GET]
+Rendering front/index
+  [4;35;1mUser Load (5.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 786ms (View: 526, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:36:35) [GET]
+Rendering front/index
+  [4;36;1mUser Load (8.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (2.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 903ms (View: 682, DB: 21) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:40:34) [GET]
+Rendering front/index
+  [4;35;1mUser Load (3.8ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 636ms (View: 469, DB: 16) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:40:58) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.4ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 607ms (View: 382, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:41:26) [GET]
+Rendering front/index
+  [4;35;1mUser Load (10.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 625ms (View: 458, DB: 20) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (4.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:42:37) [GET]
+Rendering front/index
+  [4;36;1mUser Load (3.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 624ms (View: 456, DB: 13) | 200 OK [http://158.119.147.40/]
+  [4;35;1mSQL (4.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 158.119.175.13 at 2011-03-07 15:42:50) [GET]
+Rendering front/index
+  [4;35;1mUser Load (4.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+Completed in 671ms (View: 406, DB: 15) | 200 OK [http://158.119.147.40/]
+  [4;36;1mSQL (5.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m

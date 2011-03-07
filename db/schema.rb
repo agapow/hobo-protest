@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110304145151) do
+ActiveRecord::Schema.define(:version => 20110307120313) do
 
   create_table "labs", :force => true do |t|
     t.string   "title"
@@ -24,18 +24,38 @@ ActiveRecord::Schema.define(:version => 20110304145151) do
     t.datetime "updated_at"
   end
 
+  create_table "series_managers", :force => true do |t|
+    t.integer "user_id"
+    t.integer "trial_series_id"
+  end
+
+  add_index "series_managers", ["trial_series_id"], :name => "index_series_managers_on_trial_series_id"
+  add_index "series_managers", ["user_id"], :name => "index_series_managers_on_user_id"
+
+  create_table "trial_managers", :force => true do |t|
+    t.integer "user_id"
+    t.integer "trial_id"
+  end
+
+  add_index "trial_managers", ["trial_id"], :name => "index_trial_managers_on_trial_id"
+  add_index "trial_managers", ["user_id"], :name => "index_trial_managers_on_user_id"
+
   create_table "trial_series", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "trials", :force => true do |t|
     t.string   "title"
-    t.date     "closeDate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "closes"
+    t.integer  "trial_series_id"
   end
+
+  add_index "trials", ["trial_series_id"], :name => "index_trials_on_trial_series_id"
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40
@@ -49,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20110304145151) do
     t.datetime "updated_at"
     t.string   "state",                                   :default => "active"
     t.datetime "key_timestamp"
+    t.string   "user_name"
   end
 
   add_index "users", ["state"], :name => "index_users_on_state"
