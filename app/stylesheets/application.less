@@ -6,14 +6,14 @@
 @discrete-text-clr: @darkgray;
 @darkgray:      #737373;
 
-@page-padding: 75px;
+@page-padding: 90px;
 
 body {
 	background: @headline_clr;
 	margin: 0;
 	padding-top: 5px;
 	width: auto;
-	font: 11px 'Lucida Grande', Verdana, Helvetica, sans-serif;
+	font: 12px 'Lucida Grande', Verdana, Helvetica, sans-serif;
 }
 
 .page-header {
@@ -85,7 +85,7 @@ body {
 	padding-left: @page-padding;
 	padding-right: @page-padding;
 	
-	font: 11px/165% 'Lucida Grande', Verdana, Helvetica, sans-serif;
+	font: 100%/175% 'Lucida Grande', Verdana, Helvetica, sans-serif;
 	
 	h1, h2, h3, h4 {
 		font-face: Georgia, 'Times New Roman', Times, Serif;
@@ -102,11 +102,20 @@ body {
 	
 	h4 {
 		font: bold 1em/1.5em Georgia, 'Times New Roman', Times, serif;
-		color: headline_clr;
+		color: @headline_clr;
 	}
 	
+	section.welcome-message {
+		background: whitesmoke;
+	}
 	
 }
+
+.front-page .welcome-message {
+		background: whitesmoke;
+
+}
+
 
 .content-header, .content-body, .content-footer {
 	margin: 0 0 0px;
@@ -114,10 +123,52 @@ body {
 }
 
 
+/*** FLASHES & MESSAGES */
+/*
+Attempts to unify and share the declarations here result in the base formatting
+coming through.
+TODO: investigate generated css.
+*/
+
+.flash {
+	margin-top: 5px;
+	border: 1px solid #AAA;
+}
+
+.flash.notice, .flash.success {
+	background: #DFF2BF;
+	color:  #4F8A10;
+	background-image: url(/images/icons/32/comment.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+	border: 1px solid;
+}
+
+.flash.error {
+	background: #BC1C3D;
+	color: white;
+	background-image: url(/images/icons/32/error.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+	border: 1px solid #900024;
+}
+
+div.section.error-messages {
+	background-image: url(/images/icons/32/error.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+}
+
+
+
+
 /* FOOTER */
 
 .page-footer {
-	background: whitesmoke no-repeat bottom right; 
+	background: whitesmoke; 
 	border-top: 1px solid  #CCC;
 	font-size: 12px;
 	line-height: 10px;

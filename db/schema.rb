@@ -9,17 +9,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307120313) do
+ActiveRecord::Schema.define(:version => 20110307173217) do
 
   create_table "labs", :force => true do |t|
     t.string   "title"
-    t.string   "short_name"
+    t.string   "short_name",     :limit => 16
     t.string   "institute"
     t.string   "street_address"
     t.string   "locality"
     t.string   "region"
-    t.string   "postal_code"
-    t.string   "country_name"
+    t.string   "postal_code",    :limit => 16
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "panels", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "samples", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,8 +67,9 @@ ActiveRecord::Schema.define(:version => 20110307120313) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "closes"
+    t.datetime "closing"
     t.integer  "trial_series_id"
+    t.datetime "opening"
   end
 
   add_index "trials", ["trial_series_id"], :name => "index_trials_on_trial_series_id"

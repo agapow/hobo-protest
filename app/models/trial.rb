@@ -16,6 +16,28 @@ class Trial < ActiveRecord::Base
    has_many :users, :through => :trial_managers, :accessible => true
    has_many :trial_managers, :dependent => :destroy
 
+   ## Accessors:
+   
+   # Is this trial open for submissions?
+   #
+   def is_open?
+      return state == :open
+   end
+   
+   # What state is this trial in - is it time for submissions, before or after?
+   #
+   def state
+      # pending, open, closed
+      now = Time.now
+      if now < opening
+         return :pending
+      elsif now < closed
+         return :open
+      else
+         return :closed
+      end
+   end
+
 	## Permissions:
 	def create_permitted?
 		acting_user.administrator?

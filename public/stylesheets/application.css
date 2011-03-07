@@ -13,7 +13,7 @@
   margin: 0;
   padding-top: 5px;
   width: auto;
-  font: 11px 'Lucida Grande', Verdana, Helvetica, sans-serif;
+  font: 12px 'Lucida Grande', Verdana, Helvetica, sans-serif;
 }
 .page-header {
   background: ivory;
@@ -23,7 +23,7 @@
   padding: 0;
 }
 .page-header h1 {
-  padding-left: 75px;
+  padding-left: 90px;
   padding-bottom: 10px;
 }
 .page-header h1 a {
@@ -33,8 +33,8 @@
 .page-header .navigation.main-nav {
   background: #whitesmoke;
   padding-top: 3px;
-  padding-left: 75px;
-  padding-right: 75px;
+  padding-left: 90px;
+  padding-right: 90px;
   border-width-bottom: 1px;
   border: 0px solid #aaaaaa;
   border-bottom-width: 1px;
@@ -56,16 +56,16 @@
   background: ivory;
 }
 .page-header .account-nav {
-  margin-right: 75px;
+  margin-right: 90px;
   padding-right: 0;
 }
 .page-header div.search { padding-right: 0; }
 .section.content {
   background: ivory;
   color: #666666;
-  padding-left: 75px;
-  padding-right: 75px;
-  font: 11px/165% 'Lucida Grande', Verdana, Helvetica, sans-serif;
+  padding-left: 90px;
+  padding-right: 90px;
+  font: 100%/175% 'Lucida Grande', Verdana, Helvetica, sans-serif;
 }
 .section.content h1 {
   font-face: Georgia, 'Times New Roman', Times, Serif;
@@ -87,14 +87,44 @@
 .section.content h3 { font: normal 2em Georgia, 'Times New Roman', Times, Serif; }
 .section.content h4 {
   font: bold 1em/1.5em Georgia, 'Times New Roman', Times, serif;
-  color: headline_clr;
+  color: #93b876;
 }
+.section.content section.welcome-message { background: whitesmoke; }
+.front-page .welcome-message { background: whitesmoke; }
 .content-header, .content-body, .content-footer {
   margin: 0 0 0px;
   padding: 0 0 30px;
 }
+.flash {
+  margin-top: 5px;
+  border: 1px solid #aaaaaa;
+}
+.flash.notice, .flash.success {
+  background: #dff2bf;
+  color: #4f8a10;
+  background-image: url(/images/icons/32/comment.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  padding-left: 48px;
+  border: 1px solid;
+}
+.flash.error {
+  background: #bc1c3d;
+  color: white;
+  background-image: url(/images/icons/32/error.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  padding-left: 48px;
+  border: 1px solid #900024;
+}
+div.section.error-messages {
+  background-image: url(/images/icons/32/error.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  padding-left: 48px;
+}
 .page-footer {
-  background: whitesmoke no-repeat bottom right;
+  background: whitesmoke;
   border-top: 1px solid #cccccc;
   font-size: 12px;
   line-height: 10px;

@@ -4,13 +4,13 @@ class Lab < ActiveRecord::Base
 
   fields do
     title          :string
-    short_name     :string
+    short_name     :string, :limit => 16
     institute      :string
     street_address :string
     locality       :string
     region         :string
-    postal_code    :string
-    country_name   :string
+    postal_code    :string, :limit => 16
+    country        :string
     timestamps
   end
 

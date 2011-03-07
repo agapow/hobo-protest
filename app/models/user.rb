@@ -59,19 +59,28 @@ class User < ActiveRecord::Base
 	# --- Permissions --- #
 
 	def create_permitted?
-		false
+		# Only administrators can directly create users 
+		acting_user.administrator?
 	end
 
 	def update_permitted?
-		acting_user.administrator? || 
-			(acting_user == self && only_changed?(:name, :email_address,
-				:crypted_password, :current_password, :password,
-				:password_confirmation))
+		# Only the administrator or the user themselves can edit user details.
+		# The user cannot alter their user_name after creation.
+		acting_user.administrator? || (acting_user == self && only_changed?(
+				:name,
+				:email_address,
+				:crypted_password,
+				:current_password,
+				:password,
+				:password_confirmation
+			)
+		)
 		# Note: crypted_password has attr_protected so although it is permitted
 		# to change, it cannot be changed directly from a form submission.
 	end
 
 	def destroy_permitted?
+		# Only the administrator can delete users.
 		acting_user.administrator?
 	end
 

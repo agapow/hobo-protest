@@ -1,0 +1,16 @@
+<show-page>
+
+	<content:>
+		<heading:>
+			<ht key="labs.show.heading" name="&this.respond_to?(:name) ? 'gffd' : ''">
+			hgfhgf<name/> (<%= short_name %>)
+			</ht>
+		</heading:>
+	
+		<content-body:>
+		<h3>Address</h3>
+			<field-list fields="street_address, locality, region, postal_code" />
+		</content-body:>
+	</content:>
+
+</show-page>

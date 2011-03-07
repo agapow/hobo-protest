@@ -5,7 +5,9 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
-    <nav-item with="&Lab"><ht key="labs.nav_item">Labs</ht></nav-item>
+    <nav-item with="&Lab"><ht key="labs.nav_item">Participating labs</ht></nav-item>
+    <nav-item with="&Panel"><ht key="panels.nav_item">Panels</ht></nav-item>
+    <nav-item with="&Sample"><ht key="samples.nav_item">Samples</ht></nav-item>
     <nav-item with="&Trial"><ht key="trials.nav_item">Trials</ht></nav-item>
     <nav-item with="&TrialSeries"><ht key="trial_series.nav_item">Trial Series</ht></nav-item>
   </navigation>
@@ -17,14 +19,14 @@
 <!-- ====== Lab Pages ====== -->
 
 <def tag="index-page" for="Lab">
-  <page merge title="#{ht 'labs.index.title', :default=>['Labs'] }">
+  <page merge title="#{ht 'labs.index.title', :default=>['Participating labs'] }">
     <body: class="index-page lab" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="labs.index.heading">
-            Labs
+            Participating labs
           </ht>
         </h2>
 
@@ -37,7 +39,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="labs.actions.new">New Lab</ht>
+          <ht key="labs.actions.new">New Participating lab</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -54,21 +56,21 @@
 
 
 <def tag="new-page" for="Lab">
-  <page merge title="#{ht 'labs.new.title', :default=>[' New Lab'] }">
+  <page merge title="#{ht 'labs.new.title', :default=>[' New Participating lab'] }">
     <body: class="new-page lab" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="labs.new.heading">
-            New Lab
+            New Participating lab
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'labs.actions.create', :default=>['Create Lab']}"/>
+          <submit: label="#{ht 'labs.actions.create', :default=>['Create Participating lab']}"/>
         </form>
       </section>
     </content:>
@@ -77,7 +79,7 @@
 
 
 <def tag="show-page" for="Lab">
-  <page merge title="#{ht 'labs.show.title', :default=>['Lab'] }">
+  <page merge title="#{ht 'labs.show.title', :default=>['Participating lab'] }">
 
     <body: class="show-page lab" param/>
 
@@ -93,13 +95,13 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="labs.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Lab
+                Edit Participating lab
               </ht>
             </a>
           </header>
 
           <section param="content-body">
-            <field-list fields="short_name, institute, street_address, locality, region, postal_code, country_name" param/>
+            <field-list fields="short_name, institute, street_address, locality, region, postal_code, country" param/>
           </section>
     </content:>
 
@@ -108,7 +110,7 @@
 
 
 <def tag="edit-page" for="Lab">
-  <page merge title="#{ht 'labs.edit.title', :default=>['Edit Lab'] }">
+  <page merge title="#{ht 'labs.edit.title', :default=>['Edit Participating lab'] }">
 
     <body: class="edit-page lab" param/>
 
@@ -119,7 +121,249 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'labs.actions.delete', :default=>['Remove This Lab']}" param/>
+        <delete-button label="#{ht 'labs.actions.delete', :default=>['Remove This Participating lab']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Panel Pages ====== -->
+
+<def tag="index-page" for="Panel">
+  <page merge title="#{ht 'panels.index.title', :default=>['Panels'] }">
+    <body: class="index-page panel" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="panels.index.heading">
+            Panels
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="panels.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="panels.actions.new">New Panel</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Panel">
+  <page merge title="#{ht 'panels.new.title', :default=>[' New Panel'] }">
+    <body: class="new-page panel" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="panels.new.heading">
+            New Panel
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'panels.actions.create', :default=>['Create Panel']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Panel">
+  <page merge title="#{ht 'panels.show.title', :default=>['Panel'] }">
+
+    <body: class="show-page panel" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="panels.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="panels.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Panel
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="note" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Panel">
+  <page merge title="#{ht 'panels.edit.title', :default=>['Edit Panel'] }">
+
+    <body: class="edit-page panel" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="panels.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'panels.actions.delete', :default=>['Remove This Panel']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Sample Pages ====== -->
+
+<def tag="index-page" for="Sample">
+  <page merge title="#{ht 'samples.index.title', :default=>['Samples'] }">
+    <body: class="index-page sample" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="samples.index.heading">
+            Samples
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="samples.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="samples.actions.new">New Sample</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Sample">
+  <page merge title="#{ht 'samples.new.title', :default=>[' New Sample'] }">
+    <body: class="new-page sample" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="samples.new.heading">
+            New Sample
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'samples.actions.create', :default=>['Create Sample']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Sample">
+  <page merge title="#{ht 'samples.show.title', :default=>['Sample'] }">
+
+    <body: class="show-page sample" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="samples.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="samples.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Sample
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="note" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Sample">
+  <page merge title="#{ht 'samples.edit.title', :default=>['Edit Sample'] }">
+
+    <body: class="edit-page sample" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="samples.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'samples.actions.delete', :default=>['Remove This Sample']}" param/>
       </section>
 
       <section param="content-body">
@@ -339,7 +583,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="closes, trial_series" param/>
+            <field-list fields="opening, closing, trial_series" param/>
           </section>
     </content:>
 
@@ -396,6 +640,9 @@
       </header>
 
       <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="users.actions.new">New User</ht>
+        </a>
 
         <page-nav param="top-page-nav"/>
 
