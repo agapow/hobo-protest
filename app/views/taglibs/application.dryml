@@ -46,7 +46,7 @@ XXX: merge without live search?
 		<nav-item with="&Trial"><ht key="thresholds.nav_item">Threshold reports</ht></nav-item>
 		<nav-item with="&Trial"><ht key="susceptibilities.nav_item">Resistance reports</ht></nav-item>
 		<nav-item href="#{base_url}/tools/">Tools</nav-item>
-		<live-search if="&defined_route? :site_search"/>
+		<live-search if="&defined_route? :site_search" />
 	</navigation>
 </def>
 

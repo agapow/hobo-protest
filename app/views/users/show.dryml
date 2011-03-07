@@ -14,7 +14,7 @@ NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
 <show-page>
 
   <heading:>
-	 <h2><name /> (<%= @this.user_name %>)</h2>
+	 <name /> (<%= @this.user_name %>)
   </heading:>
 
   <record-flags: replace></record-flags:>	

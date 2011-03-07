@@ -7,7 +7,7 @@ TODO: include gravatar
 %>
 <extend tag="card" for="User">
   <old-card  merge>
-    <default: replace>
+    <default:>
 		<div>
 		  <ex-gravatar style="float: left; margin: 10px 20px 10px 0" />
 		  <div style="float: left">
@@ -27,4 +27,10 @@ TODO: include gravatar
 </extend>
 
 
-
+<def tag="card" for="User">
+  <card class="user" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+  </card>
+</def>

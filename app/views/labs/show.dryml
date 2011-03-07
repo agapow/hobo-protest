@@ -2,9 +2,7 @@
 
 	<content:>
 		<heading:>
-			<ht key="labs.show.heading" name="&this.respond_to?(:name) ? 'gffd' : ''">
-			hgfhgf<name/> (<%= short_name %>)
-			</ht>
+			<h2><name /> (<%= @this.short_name %>)</h2>
 		</heading:>
 	
 		<content-body:>
