@@ -698,7 +698,6 @@
 
     <content: param>
           <header param="content-header">
-            <a:trial_series param="parent-link">&laquo; <ht key="users.actions.back" to="trial_series"><name/></ht></a:trial_series>
             <h2 param="heading">
               <ht key="users.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>

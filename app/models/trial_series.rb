@@ -10,6 +10,7 @@ class TrialSeries < ActiveRecord::Base
 	end
 
    # each trial series can have several managers
+   # TODO: need to name this to something sensible
    has_many :users, :through => :series_managers, :accessible => true
    has_many :series_managers, :dependent => :destroy
 
