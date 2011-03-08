@@ -1,0 +1,41 @@
+<page title="Home">
+
+  <body: class="front-page"/>
+
+  <content:>
+    <header class="content-header">
+      <h1>Workflow and events</h1>
+    </header>
+
+    <section class="content-body">
+      <p class="description">What happens and when.</p>
+    </section>
+    
+    <h3>Setting up participating labs</h3>
+    <p>A <b>series</b> is a sequence of trials within which the results can
+    compared across. <b>Supervisors</b> can alter the details for the
+    series and create trials within it.</p>
+    
+    <h3>Setting up a trial series</h3>
+    <p>A <b>series</b> is a sequence of trials within which the results can
+    compared across. <b>Supervisors</b> can alter the details for the
+    series and create trials within it.</p>
+    
+    <p>Create a series by going to <i>Trial Series</i> and following <i>Create a
+    new trial series</i>. The title and description are optional. One or more
+    users can be selected as supervisors.</p>
+    
+    <h3>Setting up a trial</h3>
+    <p>Within a <b>trial</b> a set of samples (grouped into panels) are sent to
+    participating labs. The labs send back results between the open and close
+    dates. After the close, results may be compared. <b>Managers</b> can alter
+    the details for the trial and create panels and samples within.</p>
+    
+    <p>Create a trial by going to <i>Trials</i> and following <i>Create a
+    new trial</i>. The title and description are optional. One or more
+    users can be selected as managers.</p>
+    
+    
+  </content:>
+  
+</page>

@@ -4,6 +4,9 @@ class DocsController < ApplicationController
 
   def index; end
 
+  def workflow; end
+  
+
   def summary
     if !current_user.administrator?
       redirect_to user_login_path
