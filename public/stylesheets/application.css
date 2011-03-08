@@ -30,6 +30,7 @@
   font: normal 165% Georgia, 'Times New Roman', Times, serif;
   color: #93b876;
 }
+.page-header h1 a:hover { color: black; }
 .page-header .navigation.main-nav {
   background: #whitesmoke;
   padding-top: 3px;
@@ -59,7 +60,11 @@
   margin-right: 90px;
   padding-right: 0;
 }
-.page-header div.search { padding-right: 0; }
+.page-header div.search {
+  float: none;
+  padding-bottom: 3px;
+  padding-top: 5px;
+}
 .section.content {
   background: ivory;
   color: #666666;
@@ -83,7 +88,7 @@
   font-face: Georgia, 'Times New Roman', Times, Serif;
   color: #444444;
 }
-.section.content h2 { font: normal 3.7em Georgia, 'Times New Roman', Times, Serif; }
+.section.content h2 { font: normal 3.5em Georgia, 'Times New Roman', Times, Serif; }
 .section.content h3 { font: normal 2em Georgia, 'Times New Roman', Times, Serif; }
 .section.content h4 {
   font: bold 1em/1.5em Georgia, 'Times New Roman', Times, serif;
@@ -91,9 +96,14 @@
 }
 .section.content section.welcome-message { background: whitesmoke; }
 .front-page .welcome-message { background: whitesmoke; }
-.content-header, .content-body, .content-footer {
+.content-header, .content-body, .page-footer {
   margin: 0 0 0px;
   padding: 0 0 30px;
+}
+.content-header { padding: 0; }
+.content-body {
+  padding-top: 20px;
+  padding-left: 4px;
 }
 .flash {
   margin-top: 5px;
@@ -126,19 +136,108 @@ div.section.error-messages {
 .page-footer {
   background: whitesmoke;
   border-top: 1px solid #cccccc;
-  font-size: 12px;
-  line-height: 10px;
+  padding-left: 90px;
+  padding-right: 90px;
   margin-top: 0;
   height: 30px;
+  padding-top: 10px;
+  font-size: 12px;
+  line-height: 10px;
 }
-.page-footer ul { list-style-type: none; }
+.page-footer ul {
+  list-style-type: none;
+  margin: 0 auto;
+  text-align: center;
+}
 .page-footer ul li {
-  float: left;
-  border-right: 1px solid #e67e00;
-  margin: 10;
-  padding: 0 15px 0px 0px;
+  margin: 10px 30px;
+  display: inline;
 }
 .page-footer ul li a {
   border: none;
   color: #737373;
 }
+.button {
+  color: white;
+  background: #93b876;
+  border: 1px solid #93b876;
+  font-size: 80%;
+  padding: 5px 10px;
+  width: auto;
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  -webkit-box-align: center;
+}
+.button:hover {
+  color: black;
+  background: white;
+  cursor: pointer;
+}
+input[type="reset"] {
+  color: white;
+  background: #93b876;
+  border: 1px solid #93b876;
+  font-size: 80%;
+  padding: 5px 10px;
+  width: auto;
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  -webkit-box-align: center;
+}
+input[type="reset"]:hover {
+  color: black;
+  background: white;
+  cursor: pointer;
+}
+a.edit-link {
+  color: #93b876;
+  border: 1px solid #93b876;
+  padding: 0px 2px;
+  font-size: 80%;
+}
+a.edit-link:hover {
+  color: white;
+  background: black;
+  border-color: black;
+}
+a.new-link {
+  color: #93b876;
+  border: 1px solid #93b876;
+  padding: 0px 2px;
+  font-size: 80%;
+}
+a.new-link:hover {
+  color: white;
+  background: black;
+  border-color: black;
+}
+a.cancel {
+  color: #93b876;
+  border: 1px solid #93b876;
+  padding: 0px 2px;
+  font-size: 80%;
+}
+a.cancel:hover {
+  color: white;
+  background: black;
+  border-color: black;
+}
+.field-list textarea {
+  width: 50%;
+  margin: 0;
+}
+.field-list input[type=text] {
+  width: 50%;
+  margin: 0;
+}
+.field-list input[type=password] {
+  width: 50%;
+  margin: 0;
+}
+.user-account-page .change-password { width: 100%; }
+.login-page .field-list { width: 100%; }
+.signup-page .field-list { width: 100%; }

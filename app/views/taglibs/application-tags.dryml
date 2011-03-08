@@ -1,0 +1,55 @@
+
+
+
+<%#
+An extended tag for showing gravatar images
+
+While DRYML supplies a gravatar image out of the box, it doesn't allow for
+several gravatar options. This local version allows the setting of alternative
+images (an url to an image file or the name of a Gravatar default image) and
+the setting of an image extension.
+
+@param [url or string] altimg   url or name of image to use if no avatar found
+@param [string] ext             extension of image type to return
+@param [email] email_address    address to render avatar for
+
+TODO: allow other gravatar options?
+TODO: neater option merging (hash & join)?
+NOTE: hobo bitched about "email_address" below until I changed it to "address".
+%>
+<def tag="ex-gravatar" attrs="size, rating, altimg, ext, address">
+  <%
+	 size ||= 80;
+	 rating ||= 'g';
+	 altimg ||= 'mm';
+	 altimg = CGI::escape(altimg);
+	 ext ||= '';
+	 digest = Digest::MD5.hexdigest(address || this.email_address);
+  -%>
+  <a class="gravatar">
+	 <img class="gravatar"
+		src="http://www.gravatar.com/avatar/#{digest}#{ext}?s=#{size}&r=#{rating}&d=#{altimg}"
+			merge-attrs/>
+  </a>
+</def>
+
+
+<%#
+A slightly modified version of Hobo's builtin live search.
+
+basically we just get rid of the label and provide a ghost suggestion.
+%>
+<def tag="live-search">
+	<div class="search">
+		<input type="search" class="live-search" placeholder="search" />
+		<spinner id="search-spinner" />
+	</div>
+	<section class="hidden" id="search-results-panel">
+		<h2><ht key="hobo.live_search.results_label">Search Results</ht></h2>
+		<div param="close-button">
+			<ht key="hobo.live_search.close_button">close</ht>
+		</div>
+		<section id="search-results">&nbsp;</section>
+	</section>
+</def>
+

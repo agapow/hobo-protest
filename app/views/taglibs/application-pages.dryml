@@ -1,0 +1,98 @@
+
+<%#
+Change the overall page layout.
+
+This effects three changes:
+* inserting the favicon in the page
+* inserting the page sidebar
+* inserting the default footer.
+
+XXX: merge without live search?
+%>
+<extend tag="page" attrs="title, full-title">
+  <old-page merge>
+
+	<header:>
+		<account-nav if="&login_url(Hobo::User.default_user_model)" />
+		<main-nav current="&title" />
+		<h1><a href="#{base_url}/"><app-name/></a></h1>
+	</header:>
+
+	<footer:>
+		<footer-nav/>
+	</footer:>
+	
+  </old-page>
+</extend>
+
+
+<def tag="main-nav">
+	<navigation class="main-nav" merge-attrs param="default">
+		<nav-item href="#{base_url}/">Home</nav-item>
+
+		<nav-item repeat="&[TrialSeries, Trial]" with="&this">
+			<%= this.view_hints.model_name_plural %>
+		</nav-item>
+
+		<nav-item href="#{base_url}/tools/">Tools</nav-item>
+		<li><live-search if="&defined_route? :site_search" /></li>
+	</navigation>
+</def>
+
+
+<def tag="footer-nav">
+	<ul>
+		<nav-item href="/docs/about">About</nav-item>
+		<nav-item href="/docs">Help</nav-item>
+		<%
+			email = Protest::Config.contact_email
+			pp "******email: #{email}"
+		-%>
+		<nav-item href="http://#{Protest::Config.hosted_by_url}">
+			Hosted by <%= Protest::Config.hosted_by_text %>
+		</nav-item>
+		<nav-item href="mailto:#{email}">
+			Contact
+		</nav-item>
+	</ul>
+</def>
+
+
+<%#
+Place a link at the top of all show pages that points to the index.
+
+There's some confusion here: a "parent-link" appears at the top of several show
+pages, but is a little cryptic (e.g. "2 Countries" on the user page? and
+something hinky seems to be going on with context as this resolves to a list of
+countries. It turns out that this is done just for objects that belong to a
+collection (:belongs_to) and the link is being generated to point to other
+objects of that collection. So this scrubs the collection link in favour of an
+index link.
+
+TODO: some better styling?
+TODO: using the relative url is a bit suspect
+TODO: making naming/wording a bit better
+FIXME: not showing up for seasons?
+%>
+<extend tag="show-page">
+	<old-show-page merge>
+	 
+		<prepend-content-header:>
+			&laquo; <a href="." class="discrete">back to all records</a>
+		</prepend-content-header:>
+	 
+		<parent-link:>
+			 <!--&laquo; <a href="." class="discrete">browse all records</a>-->
+		</parent-link:>
+		
+		<after-content-body:>
+			<br clear="all" />
+			<if test="&this.respond_to?(:created_at)">
+			 <p class="byline">
+				Created <view:created_at />. Last modified <view:updated_at />.
+			 </p>
+			</if>
+		</after-content-body:>
+		
+	</old-show-page>
+</extend>

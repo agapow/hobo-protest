@@ -6,89 +6,13 @@
 
 <set-theme name="simplegreen"/>
 
-<def tag="app-name">ProTest</def>
+<def tag="app-name">Testing</def>
 
-<!-- model pages -->
+<%# features and tags for all pages %>
+<include src="taglibs/application-pages" />
+<include src="taglibs/application-tags" />
+
 <%# include card definitions from individual models %>
 <include src="users/card" />
+<include src="trial_series/card" />
 
-
-<%#
-Change the overall page layout.
-
-This effects three changes:
-* inserting the favicon in the page
-* inserting the page sidebar
-* inserting the default footer.
-
-XXX: merge without live search?
-%>
-<extend tag="page" attrs="title, full-title">
-  <old-page merge>
-
-	<header:>
-		<account-nav if="&login_url(Hobo::User.default_user_model)" />
-		<main-nav current="&title" />
-		<h1><a href="#{base_url}/"><app-name/></a></h1>
-	</header:>
-
-	<footer:>
-		<footer-nav/>
-	</footer:>
-	
-  </old-page>
-</extend>
-
-
-<def tag="main-nav">
-	<navigation class="main-nav" merge-attrs param="default">
-		<nav-item href="#{base_url}/">Home</nav-item>
-		<nav-item with="&Trial"><ht key="thresholds.nav_item">Threshold reports</ht></nav-item>
-		<nav-item with="&Trial"><ht key="susceptibilities.nav_item">Resistance reports</ht></nav-item>
-		<nav-item href="#{base_url}/tools/">Tools</nav-item>
-		<live-search if="&defined_route? :site_search" />
-	</navigation>
-</def>
-
-
-<def tag="footer-nav">
-	<ul>
-		<nav-item href="http://www.hpa.org.uk/">hpa.org.uk</nav-item>
-		<nav-item href="/docs/site_map">Site Map</nav-item>
-		<nav-item href="/">Policies and Links</nav-item>
-		<nav-item href="/docs/contact">Contact</nav-item>
-	</ul>
-</def>
-
-
-<%#
-An extended tag for showing gravatar images
-
-While DRYML supplies a gravatar image out of the box, it doesn't allow for
-several gravatar options. This local version allows the setting of alternative
-images (an url to an image file or the name of a Gravatar default image) and
-the setting of an image extension.
-
-@param [url or string] altimg   url or name of image to use if no avatar found
-@param [string] ext             extension of image type to return
-@param [email] email_address    address to render avatar for
-
-TODO: allow other gravatar options?
-TODO: neater option merging (hash & join)?
-NOTE: hobo bitched about "email_address" below until I changed it to "address".
-%>
-<def tag="ex-gravatar" attrs="size, rating, altimg, ext, address">
-  <%
-	 size ||= 80;
-	 rating ||= 'g';
-	 altimg ||= 'mm';
-	 altimg = CGI::escape(altimg);
-	 ext ||= '';
-	 digest = Digest::MD5.hexdigest(address || this.email_address);
-  -%>
-  <a class="gravatar">
-	 <img class="gravatar"
-		src="http://www.gravatar.com/avatar/#{digest}#{ext}?s=#{size}&r=#{rating}&d=#{altimg}"
-			merge-attrs/>
-  </a>
-</def>

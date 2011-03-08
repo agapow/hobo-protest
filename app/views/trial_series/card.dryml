@@ -1,0 +1,17 @@
+<%#
+Override listing of trial series to show their managers.
+
+%>
+<extend tag="card" for="TrialSeries">
+  <old-card  merge>
+    <body:>
+		<b>Managers:</b>
+				
+		<repeat with="&this.users">
+			<a with="&this"><%= name %><%= last_item? ? '.' : ', ' %></a>
+		</repeat>
+    </body:>
+  </old-card>
+</extend>
+
+

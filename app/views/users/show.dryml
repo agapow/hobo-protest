@@ -26,7 +26,7 @@ NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
 		  <field-list fields="user_name, email_address, administrator, state" />
 		</div>
 	 </div>
-	 <br />
+	 <br clear="all"/>
   </content-body:>
 
 <!--<collection-section:>

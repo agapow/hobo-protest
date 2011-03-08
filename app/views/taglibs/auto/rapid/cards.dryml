@@ -53,6 +53,11 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="trials.collection.count" count="&this.trials.size">
+         <count:trials param/>
+      </ht>
+    </body:>
   </card>
 </def>
 

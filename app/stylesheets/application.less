@@ -1,4 +1,6 @@
 
+/*** CONSTANTS & DEFINES ***/
+
 @headline_clr: #93B876;
 @main_bg_clr: ivory; /* could be snow */
 @heading_clr: #444;
@@ -8,6 +10,11 @@
 
 @page-padding: 90px;
 
+
+/*** STYLES ***/
+
+/*** OVERALL */
+
 body {
 	background: @headline_clr;
 	margin: 0;
@@ -15,6 +22,9 @@ body {
 	width: auto;
 	font: 12px 'Lucida Grande', Verdana, Helvetica, sans-serif;
 }
+
+
+/*** HEADER */
 
 .page-header {
 	background: @main_bg_clr;
@@ -29,6 +39,10 @@ body {
 		a {
 			font: normal 165% Georgia, 'Times New Roman', Times, serif;
 			color: @headline_clr;
+			
+			:hover {
+				color: black;
+			}
 		}
 		padding-left: @page-padding;
 		padding-bottom: 10px;
@@ -72,11 +86,15 @@ body {
 	}
 	
 	div.search {
-		padding-right: 0;
+		float: none;
+		padding-bottom: 3px;
+		padding-top: 5px;
 	}
 
 }
 
+
+/*** CONTENT */
 
 .section.content {
 	background: @main_bg_clr;
@@ -93,7 +111,7 @@ body {
 	}
 	
 	h2 {
-		font: normal 3.7em Georgia, 'Times New Roman', Times, Serif;
+		font: normal 3.5em Georgia, 'Times New Roman', Times, Serif;
 	}
 	
 	h3 {
@@ -117,10 +135,23 @@ body {
 }
 
 
-.content-header, .content-body, .content-footer {
+.content-header, .content-body, .page-footer {
 	margin: 0 0 0px;
 	padding: 0 0 30px;
 }
+
+.content-header {
+	padding: 0;
+}
+
+.content-body {
+	padding-top: 20px;
+	/* this just looks a bit better if the smaller test is indented a little
+	below the bigger text. */
+	padding-left: 4px;
+}
+
+
 
 
 /*** FLASHES & MESSAGES */
@@ -163,26 +194,29 @@ div.section.error-messages {
 }
 
 
-
-
-/* FOOTER */
+/*** FOOTER */
 
 .page-footer {
 	background: whitesmoke; 
 	border-top: 1px solid  #CCC;
-	font-size: 12px;
-	line-height: 10px;
+	
+	padding-left: @page-padding;
+	padding-right: @page-padding;
 	margin-top: 0;
 	height: 30px;
-
+	padding-top: 10px;
+	
+	font-size: 12px;
+	line-height: 10px;
+	
 	ul {
 		list-style-type: none;
+		margin: 0 auto;
+		text-align: center;
 		
 		li {
-			float: left;
-			border-right: 1px solid #E67E00;
-			margin: 10;
-			padding: 0 15px 0px 0px;
+			margin: 10px 30px;
+			display: inline;
 			
 			a {
 				border:none;
@@ -190,5 +224,71 @@ div.section.error-messages {
 			}
 		}
 	}
-
 }
+
+
+/*** BUTTONS & FORMS */
+
+
+.button, input[type="reset"] {
+	color: white;
+	background: @headline_clr;
+	border: 1px solid @headline_clr;
+	font-size: 80%;
+	padding: 5px 10px;
+	width: auto;
+	font-size: 11px;
+	font-weight: bold;
+	margin-top: 10px;
+	text-align: center;
+	-webkit-box-align: center;
+	
+	:hover {
+		color: black;
+		background: white;
+		cursor: pointer;
+	}
+}
+
+
+a.edit-link, a.new-link, a.cancel {
+	color: @headline_clr;
+	border: 1px solid @headline_clr;
+	padding: 0px 2px;
+	font-size: 80%;
+	:hover {
+		color: white;
+		background: black;
+		border-color: black;
+	}
+}
+
+.field-list {
+	textarea, input[type=text], input[type=password] {
+		width: 50%;
+		margin: 0;
+	}
+}
+
+
+/*** SPECIAL PAGES */
+
+/*
+NOTE: there's some wierdness in the account details, login and signup pages
+where they are all very narrow, although not in quite the same ways. Fixed now.
+*/
+.user-account-page .change-password {
+	width: 100%;
+}
+
+.login-page .field-list {
+	width: 100%;
+}
+
+.signup-page .field-list {
+	width: 100%;
+}
+
+
+
+/*** END ***/
