@@ -51,7 +51,7 @@
 <def tag="form" for="Trial">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, opening, closing, trial_series, users" param/>
+    <field-list fields="title, opening, closing, managers, trial_series" param/>
     <div param="actions">
       <submit label="#{ht 'trials.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

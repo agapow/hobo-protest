@@ -16,8 +16,8 @@ NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
 	<field-list: replace></field-list:>
 	
 	<prepend-collection-section:>
-		<h3>Managers</h3>
-		<collection with="&this.users" />
+		<h3>Supervisors</h3>
+		<collection with="&this.supervisors" />
 
 	</prepend-collection-section:>
 		

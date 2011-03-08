@@ -13,9 +13,16 @@ class Trial < ActiveRecord::Base
    belongs_to :trial_series
    
    # each trial can have several managers
-   has_many :users, :through => :trial_managers, :accessible => true
+   has_many :managers, :source => :user, :through => :trial_managers, :accessible => true
    has_many :trial_managers, :dependent => :destroy
 
+   # each trial has supervisors via the trial series
+   has_many :supervisors, :source => :user, :through => :trial_series
+   
+   # each trial can have several labs invited to it
+   has_many :participating_labs, :source => :lab, :through => :trial_participants, :accessible => true
+   has_many :trial_participants, :dependent => :destroy
+   
    ## Accessors:
    
    # Is this trial open for submissions?

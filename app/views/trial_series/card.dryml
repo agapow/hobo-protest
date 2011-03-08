@@ -5,9 +5,9 @@ Override listing of trial series to show their managers.
 <extend tag="card" for="TrialSeries">
   <old-card  merge>
     <body:>
-		<b>Managers:</b>
+		<b>Supervisors:</b>
 				
-		<repeat with="&this.users">
+		<repeat with="&this.supervisors">
 			<a with="&this"><%= name %><%= last_item? ? '.' : ', ' %></a>
 		</repeat>
     </body:>

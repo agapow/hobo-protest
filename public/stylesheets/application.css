@@ -95,6 +95,10 @@
   color: #93b876;
 }
 .section.content section.welcome-message { background: whitesmoke; }
+.section.content p.byline {
+  padding: 0.75em 0;
+  font-style: italic;
+}
 .front-page .welcome-message { background: whitesmoke; }
 .content-header, .content-body, .page-footer {
   margin: 0 0 0px;

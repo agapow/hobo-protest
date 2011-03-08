@@ -14,6 +14,9 @@ class Lab < ActiveRecord::Base
     timestamps
   end
 
+   # each lab can have several members
+   has_many :members, :source => :user, :through => :lab_members, :accessible => true
+   has_many :lab_member, :dependent => :destroy
 
   # --- Permissions --- #
 
