@@ -5,8 +5,8 @@ class SeriesManager < ActiveRecord::Base
   fields do
   end
 
-   belongs_to :user
    belongs_to :trial_series
+   belongs_to :user
 
   # --- Permissions --- #
 
