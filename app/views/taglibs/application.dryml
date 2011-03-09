@@ -11,8 +11,12 @@
 <%# features and tags for all pages %>
 <include src="taglibs/application-pages" />
 <include src="taglibs/application-tags" />
+<include src="taglibs/feckless-fieldset" />
 
 <%# include card definitions from individual models %>
 <include src="users/card" />
 <include src="trial_series/card" />
 
+<!--<extend tag="field-list">-->
+<!--  <feckless-fieldset class="horizontal" merge/>-->
+<!--</extend> -->

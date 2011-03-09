@@ -3,7 +3,7 @@
 <def tag="form" for="Lab">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country" param/>
+    <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country, members" param/>
     <div param="actions">
       <submit label="#{ht 'labs.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -51,7 +51,7 @@
 <def tag="form" for="Trial">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, opening, closing, managers, trial_series" param/>
+    <field-list fields="title, opening, closing, managers, participating_labs, trial_series" param/>
     <div param="actions">
       <submit label="#{ht 'trials.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

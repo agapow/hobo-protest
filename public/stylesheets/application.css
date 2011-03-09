@@ -99,6 +99,7 @@
   padding: 0.75em 0;
   font-style: italic;
 }
+.section.content .section.error-messages h2 { font-size: 1.5em; }
 .front-page .welcome-message { background: whitesmoke; }
 .content-header, .content-body, .page-footer {
   margin: 0 0 0px;
@@ -106,36 +107,53 @@
 }
 .content-header { padding: 0; }
 .content-body {
-  padding-top: 20px;
+  padding-top: 0px;
   padding-left: 4px;
 }
+.flash-geometry {
+  background: #f5a9a9;
+  margin: 15px 48px;
+  border: solid 1px #aaaaaa;
+  padding: 10px;
+  padding-left: 60px;
+}
+.flash-error-decoration {
+  background-image: url(/images/icons/32/error.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+}
 .flash {
-  margin-top: 5px;
-  border: 1px solid #aaaaaa;
+  background: #f5a9a9;
+  margin: 15px 48px;
+  border: solid 1px #aaaaaa;
+  padding: 10px;
+  padding-left: 60px;
 }
 .flash.notice, .flash.success {
-  background: #dff2bf;
+  background: #d0f5a9;
   color: #4f8a10;
   background-image: url(/images/icons/32/comment.png);
   background-repeat: no-repeat;
   background-position: 8px center;
-  padding-left: 48px;
   border: 1px solid;
 }
-.flash.error {
-  background: #bc1c3d;
-  color: white;
+.flash.error, div.error-messages {
+  background: #f8e0e0;
+  color: black;
   background-image: url(/images/icons/32/error.png);
   background-repeat: no-repeat;
   background-position: 8px center;
-  padding-left: 48px;
   border: 1px solid #900024;
 }
 div.section.error-messages {
+  background: #f5a9a9;
+  margin: 15px 48px;
+  border: solid 1px #aaaaaa;
+  padding: 10px;
+  padding-left: 60px;
   background-image: url(/images/icons/32/error.png);
   background-repeat: no-repeat;
   background-position: 8px center;
-  padding-left: 48px;
 }
 .page-footer {
   background: whitesmoke;
@@ -245,3 +263,126 @@ a.cancel:hover {
 .user-account-page .change-password { width: 100%; }
 .login-page .field-list { width: 100%; }
 .signup-page .field-list { width: 100%; }
+fieldset legend {
+  padding: 0 0 1.286em;
+  font-size: 1.167em;
+  font-weight: 700;
+}
+fieldset fieldset legend {
+  padding: 0 0 1.5em;
+  font-size: 1em;
+}
+* html fieldset legend { margin-left: -7px; }
+* + html fieldset legend { margin-left: -7px; }
+fieldset .field { margin: 0 0 1em; }
+fieldset .buttons { margin: 0 0 1em; }
+fieldset .field label { display: block; }
+fieldset .field .input-help { display: block; }
+fieldset ul.fields {
+  margin: 0 0 1em;
+  padding: 0;
+}
+fieldset ul.fields li {
+  list-style-type: none;
+  margin: 0;
+}
+fieldset ul.inline li { display: inline; }
+fieldset ul.inline label { display: inline; }
+fieldset ul.inline li { padding: 0 0.75em 0 0; }
+fieldset input.radio { vertical-align: top; }
+fieldset input.checkbox { vertical-align: top; }
+fieldset label { cursor: pointer; }
+fieldset button { cursor: pointer; }
+fieldset input.submit { cursor: pointer; }
+fieldset input.image { cursor: pointer; }
+* html fieldset input.radio { vertical-align: middle; }
+* html fieldset input.checkbox { vertical-align: middle; }
+* + html fieldset input.radio { vertical-align: middle; }
+* + html fieldset input.checkbox { vertical-align: middle; }
+fieldset textarea { overflow: auto; }
+fieldset input.text {
+  margin: 0;
+  font: 1em/1.3 Helvetica, Arial, "Liberation Sans", "Bitstream Vera Sans", sans-serif;
+  vertical-align: baseline;
+}
+fieldset input.string {
+  margin: 0;
+  font: 1em/1.3 Helvetica, Arial, "Liberation Sans", "Bitstream Vera Sans", sans-serif;
+  vertical-align: baseline;
+}
+fieldset input.email-address {
+  margin: 0;
+  font: 1em/1.3 Helvetica, Arial, "Liberation Sans", "Bitstream Vera Sans", sans-serif;
+  vertical-align: baseline;
+}
+fieldset ninput.password {
+  margin: 0;
+  font: 1em/1.3 Helvetica, Arial, "Liberation Sans", "Bitstream Vera Sans", sans-serif;
+  vertical-align: baseline;
+}
+fieldset textarea {
+  margin: 0;
+  font: 1em/1.3 Helvetica, Arial, "Liberation Sans", "Bitstream Vera Sans", sans-serif;
+  vertical-align: baseline;
+}
+fieldset select {
+  margin: 0;
+  font: 1em/1.3 Helvetica, Arial, "Liberation Sans", "Bitstream Vera Sans", sans-serif;
+  vertical-align: baseline;
+}
+fieldset input.text {
+  border: 1px solid #444444;
+  padding: 2px;
+}
+fieldset input.string {
+  border: 1px solid #444444;
+  padding: 2px;
+}
+fieldset input.email-address {
+  border: 1px solid #444444;
+  padding: 2px;
+}
+fieldset input.password {
+  border: 1px solid #444444;
+  padding: 2px;
+}
+fieldset textarea {
+  border: 1px solid #444444;
+  padding: 2px;
+}
+fieldset.horizontal .field { padding-left: 150px; }
+fieldset.horizontal .field label {
+  display: inline;
+  float: left;
+  width: 140px;
+  margin-left: -150px;
+  clear: none;
+}
+fieldset.horizontal .input-help {
+  display: inline;
+  margin-left: 0.5em;
+}
+fieldset.inline-vertical .field {
+  padding-left: 0;
+  display: inline-block;
+  float: none;
+  margin-left: 0;
+  clear: none;
+  height: 1%;
+  *display: inline;
+}
+fieldset.inline-vertical .field label {
+  display: block;
+  float: none;
+  width: 100%;
+  margin-left: 0;
+}
+fieldset.inline-vertical .input-help {
+  display: block;
+  margin-left: 0;
+}
+fieldset .field.required label:before {
+  content: "*";
+  color: red;
+}
+fieldset .field.required label { color: red; }
