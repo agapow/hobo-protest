@@ -13,13 +13,13 @@ NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
 %>
 <show-page>
 	
-	<field-list: replace></field-list:>
+	<field-list: replace />
 	
-	<prepend-collection-section:>
+	<append-content-body:>
 		<h3>Supervisors</h3>
-		<collection with="&this.supervisors" />
+		<collection with="&this.users" />
 
-	</prepend-collection-section:>
+	</append-content-body:>
 		
 
 </show-page>

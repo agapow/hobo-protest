@@ -12,6 +12,6 @@ class TrialSeriesHints < Hobo::ViewHints
 		managers."
   })
   
-  children :trials
+  #children :trials
   
 end

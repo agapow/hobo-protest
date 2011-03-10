@@ -465,15 +465,6 @@
           <section param="content-body">
             <view:description param="description"/>
             <field-list fields="title" param/>
-            <section param="collection-section">
-              <h3 param="collection-heading">
-                <ht key="trial_series.collection.heading.other" >
-                  Trials
-                </ht>
-              </h3>
-
-              <collection:trials param/>
-            </section>
           </section>
     </content:>
 
@@ -577,7 +568,6 @@
 
     <content: param>
           <header param="content-header">
-            <a:trial_series param="parent-link">&laquo; <ht key="trials.actions.back" to="trial_series"><name/></ht></a:trial_series>
             <h2 param="heading">
               <ht key="trials.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
@@ -594,7 +584,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="opening, closing" param/>
+            <field-list fields="opening, closing, trial_series" param/>
           </section>
     </content:>
 

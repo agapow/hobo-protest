@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 	end
 	
 	# each trial series can have several managers
-	has_many :series_managers, :dependent => :destroy
-	has_many :trial_series, :through => :series_managers, :accessible => true
+	has_many :series_supervisors, :dependent => :destroy
+	has_many :trial_series, :through => :series_supervisors, :accessible => true
 	
 	# each trial can have several managers
 	has_many :trial_managers, :dependent => :destroy

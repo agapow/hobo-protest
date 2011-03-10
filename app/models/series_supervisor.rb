@@ -1,4 +1,4 @@
-class SeriesManager < ActiveRecord::Base
+class SeriesSupervisor < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 

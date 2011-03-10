@@ -32,8 +32,8 @@
   </card>
 </def>
 
-<def tag="card" for="SeriesManager">
-  <card class="series-manager" param="default" merge>
+<def tag="card" for="SeriesSupervisor">
+  <card class="series-supervisor" param="default" merge>
     <header: param>
       <h4 param="heading"><name/></h4>
     </header:>
@@ -69,11 +69,6 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
-    <body: param>
-      <ht key="trials.collection.count" count="&this.trials.size">
-         <count:trials param/>
-      </ht>
-    </body:>
   </card>
 </def>
 
