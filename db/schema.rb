@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310124447) do
+ActiveRecord::Schema.define(:version => 20110310154714) do
 
   create_table "lab_members", :force => true do |t|
     t.datetime "created_at"
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(:version => 20110310124447) do
   end
 
   create_table "series_supervisors", :force => true do |t|
-    t.integer "user_id"
+    t.integer "supervisor_id"
     t.integer "trial_series_id"
   end
 
+  add_index "series_supervisors", ["supervisor_id"], :name => "index_series_supervisors_on_supervisor_id"
   add_index "series_supervisors", ["trial_series_id"], :name => "index_series_supervisors_on_trial_series_id"
-  add_index "series_supervisors", ["user_id"], :name => "index_series_supervisors_on_user_id"
 
   create_table "trial_managers", :force => true do |t|
     t.integer "user_id"

@@ -6,7 +6,7 @@ class SeriesSupervisor < ActiveRecord::Base
   end
 
    belongs_to :trial_series
-   belongs_to :user
+   belongs_to :supervisor, :class_name => "User"
 
   # --- Permissions --- #
 

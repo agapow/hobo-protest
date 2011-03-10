@@ -193,7 +193,7 @@ div.section.error-messages {
   -webkit-box-align: center;
 }
 .button:hover {
-  color: black;
+  color: #93b876;
   background: white;
   cursor: pointer;
 }
@@ -211,15 +211,14 @@ input[type="reset"] {
   -webkit-box-align: center;
 }
 input[type="reset"]:hover {
-  color: black;
+  color: #93b876;
   background: white;
   cursor: pointer;
 }
 a.edit-link {
   color: #93b876;
   border: 1px solid #93b876;
-  padding: 0px 2px;
-  font-size: 80%;
+  padding: 5px 10px;
 }
 a.edit-link:hover {
   color: white;
@@ -229,8 +228,7 @@ a.edit-link:hover {
 a.new-link {
   color: #93b876;
   border: 1px solid #93b876;
-  padding: 0px 2px;
-  font-size: 80%;
+  padding: 5px 10px;
 }
 a.new-link:hover {
   color: white;
@@ -240,8 +238,7 @@ a.new-link:hover {
 a.cancel {
   color: #93b876;
   border: 1px solid #93b876;
-  padding: 0px 2px;
-  font-size: 80%;
+  padding: 5px 10px;
 }
 a.cancel:hover {
   color: white;

@@ -17,7 +17,7 @@ NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
 	
 	<append-content-body:>
 		<h3>Supervisors</h3>
-		<collection with="&this.users" />
+		<collection with="&this.supervisors" />
 
 	</append-content-body:>
 		
