@@ -9,17 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110310154714) do
+ActiveRecord::Schema.define(:version => 20110311131121) do
 
   create_table "lab_members", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lab_id"
-    t.integer  "user_id"
+    t.integer  "member_id"
   end
 
   add_index "lab_members", ["lab_id"], :name => "index_lab_members_on_lab_id"
-  add_index "lab_members", ["user_id"], :name => "index_lab_members_on_user_id"
+  add_index "lab_members", ["member_id"], :name => "index_lab_members_on_member_id"
 
   create_table "labs", :force => true do |t|
     t.string   "title"
@@ -59,21 +59,21 @@ ActiveRecord::Schema.define(:version => 20110310154714) do
   add_index "series_supervisors", ["trial_series_id"], :name => "index_series_supervisors_on_trial_series_id"
 
   create_table "trial_managers", :force => true do |t|
-    t.integer "user_id"
+    t.integer "manager_id"
     t.integer "trial_id"
   end
 
+  add_index "trial_managers", ["manager_id"], :name => "index_trial_managers_on_manager_id"
   add_index "trial_managers", ["trial_id"], :name => "index_trial_managers_on_trial_id"
-  add_index "trial_managers", ["user_id"], :name => "index_trial_managers_on_user_id"
 
   create_table "trial_participants", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trial_id"
-    t.integer  "lab_id"
+    t.integer  "participating_lab_id"
   end
 
-  add_index "trial_participants", ["lab_id"], :name => "index_trial_participants_on_lab_id"
+  add_index "trial_participants", ["participating_lab_id"], :name => "index_trial_participants_on_participating_lab_id"
   add_index "trial_participants", ["trial_id"], :name => "index_trial_participants_on_trial_id"
 
   create_table "trial_series", :force => true do |t|

@@ -5,8 +5,9 @@ class TrialManager < ActiveRecord::Base
   fields do
   end
 
-   belongs_to :user
    belongs_to :trial
+   belongs_to :manager, :class_name => "User"
+
    
   # --- Permissions --- #
 

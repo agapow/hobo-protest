@@ -179,11 +179,18 @@ div.section.error-messages {
   border: none;
   color: #737373;
 }
+.button-geometry {
+  border: 1px solid #93b876;
+  padding: 5px 10px;
+  width: auto;
+  font-size: 11px;
+  margin-top: 10px;
+  text-align: center;
+}
 .button {
   color: white;
   background: #93b876;
   border: 1px solid #93b876;
-  font-size: 80%;
   padding: 5px 10px;
   width: auto;
   font-size: 11px;
@@ -201,7 +208,6 @@ input[type="reset"] {
   color: white;
   background: #93b876;
   border: 1px solid #93b876;
-  font-size: 80%;
   padding: 5px 10px;
   width: auto;
   font-size: 11px;

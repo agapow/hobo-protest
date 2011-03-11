@@ -10,14 +10,17 @@ class User < ActiveRecord::Base
 		timestamps
 	end
 	
-	# each trial series can have several managers
-	has_many :series_supervisors, :dependent => :destroy
+	# each trial series can have several supervisors
+	has_many :series_supervisors, :dependent => :destroy, :foreign_key => "supervisor_id"
 	has_many :trial_series, :through => :series_supervisors, :accessible => true
 	
 	# each trial can have several managers
-	has_many :trial_managers, :dependent => :destroy
+	has_many :trial_managers, :dependent => :destroy, :foreign_key => "manager_id"
 	has_many :trials, :through => :trial_managers, :accessible => true
 
+	# each lab can have several members
+	has_many :lab_members, :dependent => :destroy, :foreign_key => "member_id"
+	has_many :labs, :through => :lab_members, :accessible => true
 
 	## Lifecycles:
 	
@@ -56,8 +59,16 @@ class User < ActiveRecord::Base
 	
 	end
 
-	# --- Permissions --- #
-
+	## Accessors:
+	def supervisor_of
+		return trial_series
+	end
+	
+	def manager_of
+		return trials
+	end	
+	
+	## Permissions:
 	def create_permitted?
 		# Only administrators can directly create users 
 		acting_user.administrator?
@@ -68,6 +79,7 @@ class User < ActiveRecord::Base
 		# The user cannot alter their user_name after creation.
 		acting_user.administrator? || (acting_user == self && only_changed?(
 				:name,
+				:user_name,
 				:email_address,
 				:crypted_password,
 				:current_password,

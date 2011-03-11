@@ -3,13 +3,12 @@ class TrialSeriesHints < Hobo::ViewHints
   # model_name "My Model"
   
   field_names({
-	 :users => "Managers",
 	 :field2 => "Second Field"
   })
   
   field_help({
-	 :users => "Series managers can create and edit trials and assign trial
-		managers."
+	 :supervisors => "Series supervisors can create trials in the series and
+		assign trial managers to them."
   })
   
   #children :trials

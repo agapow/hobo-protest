@@ -16,7 +16,7 @@ class TrialSeries < ActiveRecord::Base
 
    # each trial series can have many trials, ordered by reverse closing date
    has_many :trials, :dependent => :destroy, :accessible => true,
-     :order => 'closing DESC'
+      :order => 'closing DESC'
    
    ## Accessors:
    def name
@@ -36,7 +36,7 @@ class TrialSeries < ActiveRecord::Base
 
    # Only administrators or series managers can edit series.
 	def update_permitted?
-		acting_user.administrator? || users.member?(acting_user)
+		acting_user.administrator? || supervisors.member?(acting_user)
 	end
 
 	# Only administrators can create series.

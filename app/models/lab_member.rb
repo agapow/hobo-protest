@@ -7,7 +7,7 @@ class LabMember < ActiveRecord::Base
   end
 
    belongs_to :lab
-   belongs_to :user
+   belongs_to :member, :class_name => "User"
 
   # --- Permissions --- #
 
