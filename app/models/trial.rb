@@ -10,12 +10,12 @@ class Trial < ActiveRecord::Base
 	end
 
    # each trial is part of a series
-   belongs_to :trial_series
+   #belongs_to :trial_series
    
    ## each trial can have several managers
-   has_many(:trial_managers, :dependent => :destroy)
-   has_many(:managers, :through => :trial_managers, :accessible => true,
-      :class_name => "User")
+   #has_many(:trial_managers, :dependent => :destroy)
+   #has_many(:managers, :through => :trial_managers, :accessible => true,
+   #   :class_name => "User")
 
    # each trial can have several labs invited to it
    has_many(:trial_participants, :dependent => :destroy)
@@ -26,17 +26,17 @@ class Trial < ActiveRecord::Base
    
    # Each trial can have many supervisors via the parent trial series
    #
-   def supervisors
-      return trial_series.supervisors
-   end
+   #def supervisors
+   #   return trial_series.supervisors
+   #end
    
    # Return the parent (owning) series
    #
    # Just a convenience method.
    #
-   def series
-      return trial_series
-   end
+   #def series
+   #   return trial_series
+   #end
    
    # Is this trial open for submissions?
    #
@@ -60,17 +60,16 @@ class Trial < ActiveRecord::Base
 
 	## Permissions:
 	def create_permitted?
-		acting_user.administrator? || (! acting_user.supervisor_of.empty?)
+		acting_user.administrator?
 	end
 
    # Trials can only be editted by admins, supervisors or managers
 	def update_permitted?
-		acting_user.administrator? || managers.member?(acting_user) ||
-         supervisors.member?(acting_user)
+		acting_user.administrator?
 	end
 	
 	def destroy_permitted?
-		acting_user.administrator? || supervisors.member?(acting_user)
+		acting_user.administrator?
    end
 
 	def view_permitted?(field)

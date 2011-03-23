@@ -11,12 +11,12 @@ class User < ActiveRecord::Base
 	end
 	
 	# each trial series can have several supervisors
-	has_many :series_supervisors, :dependent => :destroy, :foreign_key => "supervisor_id"
-	has_many :trial_series, :through => :series_supervisors, :accessible => true
+	#has_many :series_supervisors, :dependent => :destroy, :foreign_key => "supervisor_id"
+	#has_many :trial_series, :through => :series_supervisors, :accessible => true
 	
 	# each trial can have several managers
-	has_many :trial_managers, :dependent => :destroy, :foreign_key => "manager_id"
-	has_many :trials, :through => :trial_managers, :accessible => true
+	#has_many :trial_managers, :dependent => :destroy, :foreign_key => "manager_id"
+	#has_many :trials, :through => :trial_managers, :accessible => true
 
 	# each lab can have several members
 	has_many :lab_members, :dependent => :destroy, :foreign_key => "member_id"

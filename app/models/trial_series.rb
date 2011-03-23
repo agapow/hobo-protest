@@ -11,12 +11,12 @@ class TrialSeries < ActiveRecord::Base
 
    # each trial series can have several managers
    # TODO: need to name this to something sensible
-   has_many(:series_supervisors, :dependent => :destroy)
-   has_many(:supervisors, :through => :series_supervisors, :accessible => true, :class_name => "User")
+   #has_many(:series_supervisors, :dependent => :destroy)
+   #has_many(:supervisors, :through => :series_supervisors, :accessible => true, :class_name => "User")
 
    # each trial series can have many trials, ordered by reverse closing date
-   has_many :trials, :dependent => :destroy, :accessible => true,
-      :order => 'closing DESC'
+   h#as_many :trials, :dependent => :destroy, :accessible => true,
+   #   :order => 'closing DESC'
    
    ## Accessors:
    def name
