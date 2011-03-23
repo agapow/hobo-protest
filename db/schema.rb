@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311131121) do
+ActiveRecord::Schema.define(:version => 20110323185935) do
 
   create_table "lab_members", :force => true do |t|
     t.datetime "created_at"
@@ -50,49 +50,23 @@ ActiveRecord::Schema.define(:version => 20110311131121) do
     t.datetime "updated_at"
   end
 
-  create_table "series_supervisors", :force => true do |t|
-    t.integer "supervisor_id"
-    t.integer "trial_series_id"
-  end
-
-  add_index "series_supervisors", ["supervisor_id"], :name => "index_series_supervisors_on_supervisor_id"
-  add_index "series_supervisors", ["trial_series_id"], :name => "index_series_supervisors_on_trial_series_id"
-
-  create_table "trial_managers", :force => true do |t|
-    t.integer "manager_id"
-    t.integer "trial_id"
-  end
-
-  add_index "trial_managers", ["manager_id"], :name => "index_trial_managers_on_manager_id"
-  add_index "trial_managers", ["trial_id"], :name => "index_trial_managers_on_trial_id"
-
   create_table "trial_participants", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trial_id"
-    t.integer  "participating_lab_id"
+    t.integer  "lab_id"
   end
 
-  add_index "trial_participants", ["participating_lab_id"], :name => "index_trial_participants_on_participating_lab_id"
+  add_index "trial_participants", ["lab_id"], :name => "index_trial_participants_on_lab_id"
   add_index "trial_participants", ["trial_id"], :name => "index_trial_participants_on_trial_id"
-
-  create_table "trial_series", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
-  end
 
   create_table "trials", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "closing"
-    t.integer  "trial_series_id"
     t.datetime "opening"
   end
-
-  add_index "trials", ["trial_series_id"], :name => "index_trials_on_trial_series_id"
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40

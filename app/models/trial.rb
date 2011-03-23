@@ -20,7 +20,7 @@ class Trial < ActiveRecord::Base
    # each trial can have several labs invited to it
    has_many(:trial_participants, :dependent => :destroy)
    has_many(:participating_labs, :through => :trial_participants,
-      :accessible => true, :class_name => "User")
+      :accessible => true, :class_name => "Lab")
    
    ## Accessors:
    

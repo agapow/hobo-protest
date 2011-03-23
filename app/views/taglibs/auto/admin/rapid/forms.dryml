@@ -1,53 +1,5 @@
 <!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
 
-<def tag="form" for="Lab">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country, members" param/>
-    <div param="actions">
-      <submit label="#{ht 'labs.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
-
-<def tag="form" for="Panel">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="title, description, note" param/>
-    <div param="actions">
-      <submit label="#{ht 'panels.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
-
-<def tag="form" for="Sample">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="title, description, note" param/>
-    <div param="actions">
-      <submit label="#{ht 'samples.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
-
-<def tag="form" for="Trial">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="title, opening, closing, participating_labs" param/>
-    <div param="actions">
-      <submit label="#{ht 'trials.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
-
 <def tag="form" for="User">
   <form merge param="default">
     <error-messages param/>

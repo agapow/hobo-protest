@@ -30,7 +30,7 @@ XXX: merge without live search?
 	<navigation class="main-nav" merge-attrs param="default">
 		<nav-item href="#{base_url}/">Home</nav-item>
 
-		<nav-item repeat="&[TrialSeries, Trial]" with="&this">
+		<nav-item repeat="&[Trial, Lab]" with="&this">
 			<%= this.view_hints.model_name_plural %>
 		</nav-item>
 

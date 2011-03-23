@@ -1,0 +1,21 @@
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<set-theme name="simplegreen"/>
+
+<def tag="app-name">Protest</def>
+
+<%# features and tags for all pages %>
+<include src="taglibs/application-pages" />
+<include src="taglibs/application-tags" />
+<include src="taglibs/feckless-fieldset" />
+
+<%# include card definitions from individual models %>
+<include src="users/card" />
+
+<!--<extend tag="field-list">-->
+<!--  <feckless-fieldset class="horizontal" merge/>-->
+<!--</extend> -->

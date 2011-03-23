@@ -9,7 +9,7 @@
     <nav-item with="&Panel"><ht key="panels.nav_item">Panels</ht></nav-item>
     <nav-item with="&Sample"><ht key="samples.nav_item">Samples</ht></nav-item>
     <nav-item with="&Trial"><ht key="trials.nav_item">Trials</ht></nav-item>
-    <nav-item with="&TrialSeries"><ht key="trial_series.nav_item">Trial Series</ht></nav-item>
+    <nav-item with="&User"><ht key="users.nav_item">Users</ht></nav-item>
   </navigation>
 </def>
 
@@ -378,127 +378,6 @@
 
 
 
-<!-- ====== TrialSeries Pages ====== -->
-
-<def tag="index-page" for="TrialSeries">
-  <page merge title="#{ht 'trial_series.index.title', :default=>['Trial Series'] }">
-    <body: class="index-page trial-series" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="trial_series.index.heading">
-            Trial Series
-          </ht>
-        </h2>
-
-        <p param="count" if>
-          <ht key="trial_series.collection.count" count="&this.size">
-            There <count prefix="are"/>
-          </ht>
-        </p>
-      </header>
-
-      <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="trial_series.actions.new">New Trial Series</ht>
-        </a>
-
-        <page-nav param="top-page-nav"/>
-
-        <collection param/>
-
-        <page-nav param="bottom-page-nav"/>
-
-
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="new-page" for="TrialSeries">
-  <page merge title="#{ht 'trial_series.new.title', :default=>[' New Trial Series'] }">
-    <body: class="new-page trial-series" param/>
-
-    <content: param>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="trial_series.new.heading">
-            New Trial Series
-          </ht>
-        </h2>
-      </section>
-
-      <section param="content-body">
-        <form param>
-          <submit: label="#{ht 'trial_series.actions.create', :default=>['Create Trial Series']}"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="show-page" for="TrialSeries">
-  <page merge title="#{ht 'trial_series.show.title', :default=>['Trial Series'] }">
-
-    <body: class="show-page trial-series" param/>
-
-    <content: param>
-          <header param="content-header">
-            <h2 param="heading">
-              <ht key="trial_series.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
-                <name/>
-              </ht>
-            </h2>
-
-            <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="trial_series.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Trial Series
-              </ht>
-            </a>
-          </header>
-
-          <section param="content-body">
-            <view:description param="description"/>
-            <field-list fields="title" param/>
-          </section>
-    </content:>
-
-  </page>
-</def>
-
-
-<def tag="edit-page" for="TrialSeries">
-  <page merge title="#{ht 'trial_series.edit.title', :default=>['Edit Trial Series'] }">
-
-    <body: class="edit-page trial-series" param/>
-
-    <content:>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="trial_series.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
-            Edit <type-name/>
-          </ht>
-        </h2>
-        <delete-button label="#{ht 'trial_series.actions.delete', :default=>['Remove This Trial Series']}" param/>
-      </section>
-
-      <section param="content-body">
-        <form param/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-
-
-
-
 <!-- ====== Trial Pages ====== -->
 
 <def tag="index-page" for="Trial">
@@ -584,7 +463,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="opening, closing, trial_series" param/>
+            <field-list fields="opening, closing" param/>
           </section>
     </content:>
 

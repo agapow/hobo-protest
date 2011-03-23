@@ -7,7 +7,7 @@ class TrialParticipant < ActiveRecord::Base
   end
 
    belongs_to :trial
-   belongs_to :participating_lab, :class_name => "Lab"
+   belongs_to :lab, :class_name => "Lab"
 
   # --- Permissions --- #
 

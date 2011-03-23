@@ -32,16 +32,9 @@
       </div>
       
       <div class="column-box">
-        <h3>I am a trial manager</h3>
-        <ul>
-          <li><a with="&Trial">Browse and edit trials</a></li>
-          <li><a with="&TrialSeries">Browse and edit trial series</a></li>
-        </ul> 
-      </div>
-      
-      <div class="column-box">
         <h3>I am an administrator</h3>
         <ul>
+          <li><a with="&Trial">Browse and edit trials</a></li>
           <li><a href="/tools">Use the adminstrative tools</a></li>
         </ul> 
       </div>

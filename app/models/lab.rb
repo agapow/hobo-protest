@@ -20,7 +20,7 @@ class Lab < ActiveRecord::Base
 
    # each lab can be in several trials
    has_many(:trial_participants, :dependent => :destroy)
-   has_many(:trials, :through => :trial_participants, :accessible => true)
+   has_many(:trials, :through => :trial_participants)
 
 
   # --- Permissions --- #
