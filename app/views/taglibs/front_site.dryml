@@ -6,7 +6,7 @@
 
 <set-theme name="simplegreen"/>
 
-<def tag="app-name">Protest</def>
+<def tag="app-name">Testbed</def>
 
 <%# features and tags for all pages %>
 <include src="taglibs/application-pages" />
