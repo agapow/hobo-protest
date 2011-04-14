@@ -3,9 +3,13 @@ the API for learning more. Run "rake doc:app" to generate API documentation for
 your models, controllers, helpers, and libraries.
 
 
-Install the less plugin for rails as per this page
+Install the less plugin for rails as per this page:
 
 	https://github.com/cloudhead/more/
+
+Install roo::
+
+	% gem install roo
 	
-	
-Stylesheet based on Keep It Simple <http://www.styleshout.com/templates/preview/KeepItSimple11/index.html>
+Stylesheet based on Keep It Simple
+<http://www.styleshout.com/templates/preview/KeepItSimple11/index.html>

@@ -16,6 +16,7 @@ XXX: merge without live search?
 		<account-nav if="&login_url(Hobo::User.default_user_model)" />
 		<main-nav current="&title" />
 		<h1><a href="#{base_url}/"><app-name/></a></h1>
+		<p class="app-subtitle"><app-subtitle/></p>
 	</header:>
 
 	<footer:>

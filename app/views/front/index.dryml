@@ -1,47 +1,57 @@
 <page title="Home">
 
-  <body: class="front-page"/>
+	<body: class="front-page"/>
 
-  <content:>
-    <header class="content-header">
-      <h2>Welcome to <app-name/></h2>
-      <section class="welcome-message">
-        <% if User.count == 0 -%>
-          <h3 style="margin-top: 20px;">There are no user accounts - please provide the details of the site administrator</h3>
-          <do with="&User.new"><% this.exempt_from_edit_checks = true %>
-            <signup-form/>
-          </do>
-        <% end -%>
-      </section>
-    </header>
+	<content:>
+		<header class="content-header">
+			<h2>What do you want to do?</h2>
+			<section class="welcome-message">
+				<% if User.count == 0 -%>
+					<h3 style="margin-top: 20px;">There are no user accounts - please provide the details of the site administrator</h3>
+					<do with="&User.new"><% this.exempt_from_edit_checks = true %>
+						<signup-form/>
+					</do>
+				<% end -%>
+			</section>
+		</header>
 
-    <section class="content-body">
-      <p class="classname">What do you want to do?</p>
-      
-      <div class="column-box">
-        <h3>I am a participant</h3>
-        <ul>
-          <li><a with="&Lab">Go to my laboratory</a></li>
-          <li><a href="#{link_to 'My Account', :controller => 'users',
-            :action => 'account', :id=>current_user}">Go to my account</a>
-          </li>
-          <li><a href="/docs">Consult the help documentation</a></li>
-          <li><a href="mailto:#{Protest::Config.contact_email}">
-            Contact the site administrator</a></li>
-        </ul> 
-      </div>
-      
-      <div class="column-box">
-        <h3>I am an administrator</h3>
-        <ul>
-          <li><a with="&Trial">Browse and edit trials</a></li>
-          <li><a href="/tools">Use the adminstrative tools</a></li>
-        </ul> 
-      </div>
-      
-    </section>
-  </content:>
-  
+		<section class="content-body">
+			
+			<div>
+				<div class="column-box">
+					<h3>I am a participant</h3>
+					<ul>
+						<if test="& !current_user.guest?">
+							<li><a href="#{link_to 'My Account', :controller => 'users',
+								:action => 'account', :id=>current_user}">Go to my account</a>
+							</li>
+							<if test="&current_user.lab_id">
+								<li><a with="&Lab">Go to my laboratory</a></li>
+							</if>
+						</if>
+
+						<li><a href="/docs">Consult the help documentation</a></li>
+						<li><a href="mailto:#{Protest::Config.contact_email}">
+							Contact the site administrator</a></li>
+					</ul> 
+				</div>
+				
+				<div class="column-box">
+					<h3>I am an administrator</h3>
+					<ul>
+						<%- link_list = [Trial, User, Lab] %>
+						<nav-item repeat="&link_list" with="&this">
+							Browse and edit <%= this.view_hints.model_name_plural.downcase %>
+						</nav-item>
+						<li><a href="/tools">Use the adminstrative tools</a></li>
+					</ul> 
+				</div>  
+			</div>
+			<br clear="all" />
+			
+		</section>
+	</content:>
+	
 </page>
 
 

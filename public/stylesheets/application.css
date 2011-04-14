@@ -24,13 +24,20 @@
 }
 .page-header h1 {
   padding-left: 90px;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
+  margin-right: 90px;
+  background: transparent url('/images/crl-logo-96.jpg') no-repeat right center;
 }
 .page-header h1 a {
   font: normal 165% Georgia, 'Times New Roman', Times, serif;
   color: #93b876;
 }
 .page-header h1 a:hover { color: black; }
+.page-header .app-subtitle {
+  font: normal 130% Georgia, 'Times New Roman', Times, serif;
+  color: #93b876;
+  padding-left: 95px;
+}
 .page-header .navigation.main-nav {
   background: #whitesmoke;
   padding-top: 3px;
@@ -100,6 +107,11 @@
   font-style: italic;
 }
 .section.content .section.error-messages h2 { font-size: 1.5em; }
+.section.content .column-box {
+  margin: 0;
+  width: 45%;
+  float: left;
+}
 .front-page .welcome-message { background: whitesmoke; }
 .content-header, .content-body, .page-footer {
   margin: 0 0 0px;

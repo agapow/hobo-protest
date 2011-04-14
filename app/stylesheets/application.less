@@ -9,6 +9,7 @@
 @darkgray:      #737373;
 
 @page-padding: 90px;
+@page-padding-plus: 95px;
 
 
 /*** STYLES ***/
@@ -45,7 +46,15 @@ body {
 			}
 		}
 		padding-left: @page-padding;
-		padding-bottom: 10px;
+		padding-bottom: 6px;
+		margin-right: @page-padding;
+		background: transparent url('/images/crl-logo-96.jpg') no-repeat right center;
+	}
+	
+	.app-subtitle {
+		font: normal 130% Georgia, 'Times New Roman', Times, serif;
+		color: @headline_clr;
+		padding-left: @page-padding-plus;
 	}
 	
 	.navigation.main-nav {
@@ -138,6 +147,11 @@ body {
 		}
 	}
 	
+	.column-box {
+		margin: 0;
+		width: 45%;
+		float: left;
+	}
 }
 
 .front-page .welcome-message {
