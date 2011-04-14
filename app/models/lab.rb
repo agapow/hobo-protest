@@ -15,8 +15,7 @@ class Lab < ActiveRecord::Base
   end
 
    # each lab can have several members
-   has_many(:lab_members, :dependent => :destroy)
-   has_many(:members, :through => :lab_members, :accessible => true, :class_name => "User")
+   has_many(:users)
 
    # each lab can be in several trials
    has_many(:trial_participants, :dependent => :destroy)

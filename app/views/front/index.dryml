@@ -25,7 +25,7 @@
 							<li><a href="#{link_to 'My Account', :controller => 'users',
 								:action => 'account', :id=>current_user}">Go to my account</a>
 							</li>
-							<if test="&current_user.lab_id">
+							<if test="&current_user">
 								<li><a with="&Lab">Go to my laboratory</a></li>
 							</if>
 						</if>

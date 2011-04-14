@@ -10,9 +10,7 @@ class User < ActiveRecord::Base
 		timestamps
 	end
 	
-	# each lab can have several members
-	has_many :lab_members, :dependent => :destroy, :foreign_key => "member_id"
-	has_many :labs, :through => :lab_members, :accessible => true
+	belongs_to :lab, :accessible => true
 
 	## Lifecycles:
 	

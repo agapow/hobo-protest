@@ -1,1 +1,7 @@
-<index-page/>
+<index-page>
+  
+  <after-collection:>
+		<bulk-upload-form name="users" template="upload-users-template.xls"/>
+  </after-collection:>
+  
+</index-page>

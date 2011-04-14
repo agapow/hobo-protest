@@ -152,6 +152,12 @@ body {
 		width: 45%;
 		float: left;
 	}
+	
+	.admins-only {
+		padding: 5px 20px;
+		background: cornsilk;
+		border: 1px solid @darkgray;
+	}
 }
 
 .front-page .welcome-message {
@@ -284,6 +290,19 @@ div.section.error-messages {
 	
 	:hover {
 		color: @headline_clr;
+		background: white;
+		cursor: pointer;
+	}
+}
+
+.submit-button {
+	padding: 5px;
+	color: white;
+	background: @darkgray;
+	border-color: @darkgray;
+	
+	:hover {
+		color: @darkgray;
 		background: white;
 		cursor: pointer;
 	}

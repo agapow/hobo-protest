@@ -1,5 +1,6 @@
-
-
+<%#
+Various tags for use throughout the application.
+%>
 
 <%#
 An extended tag for showing gravatar images
@@ -53,3 +54,111 @@ basically we just get rid of the label and provide a ghost suggestion.
 	</section>
 </def>
 
+
+<def tag="form-field" attrs="name, type, value, title, options, help">
+	<%
+		# name must be provided
+		# type is assumed to be 'text' unless otherwise said
+		type ||= "text"
+		# title is derived from the name if need be
+		title ||= title || name.capitalize()
+		# grab the value from the request if possible, otherwise default
+		value = request.parameters[name] || value
+		# formid from context
+		formid = "test" #this.id
+		# has helptext been provided?
+		help ||= false
+	%>
+	<tr> 
+		<th class="#{name}-label"> <%= title %></th> 
+		<td class="#{name}-view">
+			
+			<if test="&type == 'text'">
+				<input class="#{name}-tag #{type} #{formid}-#{name}"
+					id="#{formid}_#{name}" name="#{name}" type="#{type}"
+					value="#{value}" />
+			</if>
+			
+			<if test="&type == 'boolean'">
+				<%=
+					# TODO: set id?
+					checked = (value == '0')? false : true
+					cb_tag = check_box_tag(name, '1', checked, attributes)
+					cb_hidden_tag = hidden_field_tag(name, '0', :id => nil)
+					HoboSupport::RAILS_AT_LEAST_23 ? cb_hidden_tag + cb_tag : cb_tag + cb_hidden_tag
+				%>
+			</if>
+			
+			<if test="&type == 'selectone'">
+				<%
+				# TODO: a way to set disabled choices and accept null answers?
+				%>
+				<select name="#{name}"
+					class="#{name}-tag #{type} #{formid}-#{name}"
+					id="#{formid}_#{name}">
+				  <%= options_for_select(options, value.to_i) %>
+				</select>
+			</if>
+			
+			<if test="&type == 'file'">
+				<input class="#{name}-tag #{type} #{formid}-#{name}"
+					id="#{formid}_#{name}" name="#{name}" type="#{type}" />
+			</if>
+			
+			<div if="&help" class="input-help"><% help %></div>
+		</td> 
+	</tr>
+</def>
+
+
+<def tag="bulk-upload-form" attrs="name, action, template">
+	<if test="&current_user.administrator?">
+		<%-
+			# informal name for objects you're creating
+			name ||= "records"
+			# where to submit form to
+			action ||= "."
+			# do we have a template?
+			template ||= "def.xlsx"
+
+		%>
+		<%= this_parent %>
+		<div class="admins-only">
+		<h3>Bulk upload</h3>
+		<p class="description">
+			Create multiple <%= name %> by uploading a spreadsheet in the correct
+			format.
+			<if test="&template">
+				Download an example <a href="/downloads/#{template}">here</a>.
+			</if>
+		</p>
+		
+		<%
+			attrs_hsh = {
+				:action => action,
+				:method => "post",
+			}
+			attrs_hsh[:enctype] = "multipart/form-data"			
+		-%>
+		<form merge-attrs="&attrs_hsh">
+			<table class="field-list">
+				<form-field type="file" name="spreadsheet"
+					help="An Excel (.xls or .xls) file in the described format." />
+				<form-field name="dryrun" title="Dry-run" type="boolean" value="0"
+					help="Test the format of your file, but do not save data." />
+				<form-field name="overwrite" title="Overwrite" type="boolean" value="0"
+					help="Overwrite existing data. This will not destroy records but will change them." />
+			</table>
+			<br clear="all" />
+			<div class="tool-buttons">
+				<input type="submit" name="_submit" value="Upload" label="Upload"
+					class="button submit-button"/>
+			</div>
+		</form>
+				
+				
+
+		
+		</div>
+	</if>
+</def>

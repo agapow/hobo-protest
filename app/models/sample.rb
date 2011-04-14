@@ -5,10 +5,13 @@ class Sample < ActiveRecord::Base
   fields do
     title       :string
     description :text
+    value       :float
+    outcome     enum_string(:positive, :inconclusive, :negative)
     note        :text
     timestamps
   end
 
+  belongs_to :panel
 
   # --- Permissions --- #
 
