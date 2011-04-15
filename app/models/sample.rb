@@ -3,25 +3,22 @@ class Sample < ActiveRecord::Base
   hobo_model # Don't put anything above this
 
   fields do
-		title         :string
-		description   :string
-		result        :float
-		outcome       enum_string(:negative, :ambiguous, :positive), :default => :ambiguous
-		note          :string
-		timestamps
+    title       :string
+    description :text
+    result       :float
+    outcome     enum_string(:positive, :inconclusive, :negative), :default => :inconclusive
+    note        :text
+    timestamps
   end
 
-	belongs_to(:sample_type)
-	belongs_to(:panel)
+  belongs_to :panel
 	belongs_to(:trial)
 
-
 	## ACCESSORS:
-	
+
 	def name
 		return "#{title.blank? ? id.to_s() : title} (panel #{panel.name})"
 	end
-
 
   # --- Permissions --- #
 

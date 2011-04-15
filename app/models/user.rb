@@ -10,17 +10,7 @@ class User < ActiveRecord::Base
 		timestamps
 	end
 	
-	# each trial series can have several supervisors
-	#has_many :series_supervisors, :dependent => :destroy, :foreign_key => "supervisor_id"
-	#has_many :trial_series, :through => :series_supervisors, :accessible => true
-	
-	# each trial can have several managers
-	#has_many :trial_managers, :dependent => :destroy, :foreign_key => "manager_id"
-	#has_many :trials, :through => :trial_managers, :accessible => true
-
-	# each lab can have several members
-	has_many :lab_members, :dependent => :destroy, :foreign_key => "member_id"
-	has_many :labs, :through => :lab_members, :accessible => true
+	belongs_to :lab, :accessible => true
 
 	## Lifecycles:
 	
@@ -35,18 +25,19 @@ class User < ActiveRecord::Base
 	lifecycle do
 		state(:active, :default => true)
 		
-		create(:signup,
-			:available_to => "Guest",
-			:params => [
-				# TODO: anyway of labelling fields other than hints?
-				:name,
-				:user_name,
-				:email_address,
-				:password,
-				:password_confirmation
-			],
-			:become => :active
-		)
+		# make signup impossible
+		#create(:signup,
+		#	:available_to => "Guest",
+		#	:params => [
+		#		# TODO: anyway of labelling fields other than hints?
+		#		:name,
+		#		:user_name,
+		#		:email_address,
+		#		:password,
+		#		:password_confirmation
+		#	],
+		#	:become => :active
+		#)
 		
 		transition(:request_password_reset, { :active => :active }, :new_key => true) do
 			UserMailer.deliver_forgot_password(self, lifecycle.key)

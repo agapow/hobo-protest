@@ -9,17 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110324140048) do
-
-  create_table "lab_members", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "lab_id"
-    t.integer  "member_id"
-  end
-
-  add_index "lab_members", ["lab_id"], :name => "index_lab_members_on_lab_id"
-  add_index "lab_members", ["member_id"], :name => "index_lab_members_on_member_id"
+ActiveRecord::Schema.define(:version => 20110414161059) do
 
   create_table "labs", :force => true do |t|
     t.string   "title"
@@ -129,8 +119,10 @@ ActiveRecord::Schema.define(:version => 20110324140048) do
     t.string   "state",                                   :default => "active"
     t.datetime "key_timestamp"
     t.string   "user_name"
+    t.integer  "lab_id"
   end
 
+  add_index "users", ["lab_id"], :name => "index_users_on_lab_id"
   add_index "users", ["state"], :name => "index_users_on_state"
 
 end

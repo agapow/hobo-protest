@@ -9,6 +9,7 @@
 @darkgray:      #737373;
 
 @page-padding: 90px;
+@page-padding-plus: 95px;
 
 
 /*** STYLES ***/
@@ -45,7 +46,15 @@ body {
 			}
 		}
 		padding-left: @page-padding;
-		padding-bottom: 10px;
+		padding-bottom: 6px;
+		margin-right: @page-padding;
+		background: transparent url('/images/crl-logo-96.jpg') no-repeat right center;
+	}
+	
+	.app-subtitle {
+		font: normal 130% Georgia, 'Times New Roman', Times, serif;
+		color: @headline_clr;
+		padding-left: @page-padding-plus;
 	}
 	
 	.navigation.main-nav {
@@ -138,6 +147,17 @@ body {
 		}
 	}
 	
+	.column-box {
+		margin: 0;
+		width: 45%;
+		float: left;
+	}
+	
+	.admins-only {
+		padding: 5px 20px;
+		background: cornsilk;
+		border: 1px solid @darkgray;
+	}
 }
 
 .front-page .welcome-message {
@@ -276,6 +296,19 @@ div.section.error-messages {
 	
 	:hover {
 		color: @headline_clr;
+		background: white;
+		cursor: pointer;
+	}
+}
+
+.submit-button {
+	padding: 5px;
+	color: white;
+	background: @darkgray;
+	border-color: @darkgray;
+	
+	:hover {
+		color: @darkgray;
 		background: white;
 		cursor: pointer;
 	}

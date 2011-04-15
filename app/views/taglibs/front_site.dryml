@@ -6,7 +6,9 @@
 
 <set-theme name="simplegreen"/>
 
-<def tag="app-name">Protest</def>
+<def tag="app-name">Testbed</def>
+
+<def tag="app-subtitle">This is a subtitle<!--Proficiency testing portal for FMDV--></def>
 
 <%# features and tags for all pages %>
 <include src="taglibs/application-pages" />
