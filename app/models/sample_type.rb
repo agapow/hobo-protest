@@ -1,26 +1,17 @@
-class Panel < ActiveRecord::Base
+class SampleType < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-		title       :string, :required, :unique
-		short_name  :string, :unique
-		description :text
-		note        :text
-		timestamps
+    title       :string
+    description :string
+    units       :string
+    note        :string
+    timestamps
   end
 
-	## ACCESSORS:
-	
-	def name
-		if short_name.blank?
-			return title.blank? ? id.to_s() : title
-		else
-			return short_name
-		end
-	end
-	
-	
+	has_many(:test_types, :accessible => true)
+
   # --- Permissions --- #
 
   def create_permitted?

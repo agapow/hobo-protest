@@ -1,0 +1,11 @@
+<%#
+Customize the appearance of a page showing a single trial.
+%>
+<show-page>
+
+  <prepend-content-body:>
+		<p class="description"><%= this.state.capitalize %>.</p>
+  </prepend-content-body:>
+	
+</show-page>
+

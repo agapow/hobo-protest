@@ -15,9 +15,33 @@
 <def tag="form" for="Panel">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, description, note" param/>
+    <field-list fields="title, short_name, description, note" param/>
     <div param="actions">
       <submit label="#{ht 'panels.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="SampleResult">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, result, outcome, sample, shipment" param/>
+    <div param="actions">
+      <submit label="#{ht 'sample_results.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="SampleType">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, description, units, note, test_types" param/>
+    <div param="actions">
+      <submit label="#{ht 'sample_types.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>
@@ -27,9 +51,33 @@
 <def tag="form" for="Sample">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, description, note" param/>
+    <field-list fields="title, description, result, outcome, note, panel, sample_type, trial" param/>
     <div param="actions">
       <submit label="#{ht 'samples.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Shipment">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, lab, sample_results, trial" param/>
+    <div param="actions">
+      <submit label="#{ht 'shipments.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="TestType">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, description, sample_type" param/>
+    <div param="actions">
+      <submit label="#{ht 'test_types.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>
@@ -39,7 +87,7 @@
 <def tag="form" for="Trial">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, opening, closing, participating_labs" param/>
+    <field-list fields="title, opening, closing, samples, shipments" param/>
     <div param="actions">
       <submit label="#{ht 'trials.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

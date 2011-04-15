@@ -1,0 +1,23 @@
+<%#
+Customize the appearance of a shipment card.
+
+Have different appearances for admin and participant.
+%>
+<extend tag="card" for="Shipment">
+	<old-card  merge>
+		 <body: param>
+			<if test="&this.sample_results == 0">
+				No attached samples.
+			</if>
+			<% if current_user.administrator? %>
+				<repeat with="&this.sample_results">
+					<%= this.sample.name %> = <name />
+				</repeat>
+			<% else %>
+				<repeat with="&this.sample_results">
+					<name />
+				</repeat>
+			<% end %>
+		</body:>
+	</old-card>
+</extend>

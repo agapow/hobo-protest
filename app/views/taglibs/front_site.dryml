@@ -15,7 +15,6 @@
 
 <%# include card definitions from individual models %>
 <include src="users/card" />
+<include src="trials/card" />
+<include src="shipments/card" />
 
-<!--<extend tag="field-list">-->
-<!--  <feckless-fieldset class="horizontal" merge/>-->
-<!--</extend> -->

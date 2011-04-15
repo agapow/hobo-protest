@@ -8,8 +8,8 @@
     <nav-item with="&Lab"><ht key="labs.nav_item">Participating labs</ht></nav-item>
     <nav-item with="&Panel"><ht key="panels.nav_item">Panels</ht></nav-item>
     <nav-item with="&Sample"><ht key="samples.nav_item">Samples</ht></nav-item>
-    <nav-item with="&Trial"><ht key="trials.nav_item">Trials</ht></nav-item>
-    <nav-item with="&User"><ht key="users.nav_item">Users</ht></nav-item>
+    <nav-item with="&SampleResult"><ht key="sample_results.nav_item">Sample Results</ht></nav-item>
+    <nav-item with="&SampleType"><ht key="sample_types.nav_item">Sample Types</ht></nav-item>
   </navigation>
 </def>
 
@@ -84,6 +84,8 @@
     <body: class="show-page lab" param/>
 
     <content: param>
+      <section-group>
+        <section param="main-content">
           <header param="content-header">
             <h2 param="heading">
               <ht key="labs.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
@@ -101,8 +103,30 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="short_name, institute, street_address, locality, region, postal_code, country" param/>
+            <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="labs.collection.heading.other" >
+                  Shipments
+                </ht>
+              </h3>
+
+              <collection:shipments param/>
+            </section>
           </section>
+        </section>
+
+        <aside param>
+          <section param="members-collection-section">
+            <h3 param="members-collection-heading">
+              <ht key="members.collection.heading.other" >
+                Members
+              </ht>
+            </h3>
+            <collection:members  param="members-collection"/>
+          </section>
+        </aside>
+      </section-group>
     </content:>
 
   </page>
@@ -222,7 +246,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="note" param/>
+            <field-list fields="title, short_name, note" param/>
           </section>
     </content:>
 
@@ -243,6 +267,257 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'panels.actions.delete', :default=>['Remove This Panel']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== SampleResult Pages ====== -->
+
+<def tag="index-page" for="SampleResult">
+  <page merge title="#{ht 'sample_results.index.title', :default=>['Sample Results'] }">
+    <body: class="index-page sample-result" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="sample_results.index.heading">
+            Sample Results
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="sample_results.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="sample_results.actions.new">New Sample Result</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="SampleResult">
+  <page merge title="#{ht 'sample_results.new.title', :default=>[' New Sample Result'] }">
+    <body: class="new-page sample-result" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="sample_results.new.heading">
+            New Sample Result
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'sample_results.actions.create', :default=>['Create Sample Result']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="SampleResult">
+  <page merge title="#{ht 'sample_results.show.title', :default=>['Sample Result'] }">
+
+    <body: class="show-page sample-result" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:shipment param="parent-link">&laquo; <ht key="sample_results.actions.back" to="shipment"><name/></ht></a:shipment>
+            <h2 param="heading">
+              <ht key="sample_results.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="sample_results.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Sample Result
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="title, result, outcome, sample" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="SampleResult">
+  <page merge title="#{ht 'sample_results.edit.title', :default=>['Edit Sample Result'] }">
+
+    <body: class="edit-page sample-result" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="sample_results.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'sample_results.actions.delete', :default=>['Remove This Sample Result']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== SampleType Pages ====== -->
+
+<def tag="index-page" for="SampleType">
+  <page merge title="#{ht 'sample_types.index.title', :default=>['Sample Types'] }">
+    <body: class="index-page sample-type" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="sample_types.index.heading">
+            Sample Types
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="sample_types.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="sample_types.actions.new">New Sample Type</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="SampleType">
+  <page merge title="#{ht 'sample_types.new.title', :default=>[' New Sample Type'] }">
+    <body: class="new-page sample-type" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="sample_types.new.heading">
+            New Sample Type
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'sample_types.actions.create', :default=>['Create Sample Type']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="SampleType">
+  <page merge title="#{ht 'sample_types.show.title', :default=>['Sample Type'] }">
+
+    <body: class="show-page sample-type" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="sample_types.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="sample_types.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Sample Type
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="units, note" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="sample_types.collection.heading.other" >
+                  Test Types
+                </ht>
+              </h3>
+
+              <collection:test_types param/>
+            </section>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="SampleType">
+  <page merge title="#{ht 'sample_types.edit.title', :default=>['Edit Sample Type'] }">
+
+    <body: class="edit-page sample-type" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="sample_types.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'sample_types.actions.delete', :default=>['Remove This Sample Type']}" param/>
       </section>
 
       <section param="content-body">
@@ -343,7 +618,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="note" param/>
+            <field-list fields="title, result, outcome, note, panel, sample_type, trial" param/>
           </section>
     </content:>
 
@@ -364,6 +639,257 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'samples.actions.delete', :default=>['Remove This Sample']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Shipment Pages ====== -->
+
+<def tag="index-page" for="Shipment">
+  <page merge title="#{ht 'shipments.index.title', :default=>['Shipments'] }">
+    <body: class="index-page shipment" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="shipments.index.heading">
+            Shipments
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="shipments.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="shipments.actions.new">New Shipment</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Shipment">
+  <page merge title="#{ht 'shipments.new.title', :default=>[' New Shipment'] }">
+    <body: class="new-page shipment" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="shipments.new.heading">
+            New Shipment
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'shipments.actions.create', :default=>['Create Shipment']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Shipment">
+  <page merge title="#{ht 'shipments.show.title', :default=>['Shipment'] }">
+
+    <body: class="show-page shipment" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:lab param="parent-link">&laquo; <ht key="shipments.actions.back" to="lab"><name/></ht></a:lab>
+            <h2 param="heading">
+              <ht key="shipments.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="shipments.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Shipment
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="title, trial" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="shipments.collection.heading.other" >
+                  Sample Results
+                </ht>
+              </h3>
+
+              <collection:sample_results param/>
+            </section>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Shipment">
+  <page merge title="#{ht 'shipments.edit.title', :default=>['Edit Shipment'] }">
+
+    <body: class="edit-page shipment" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="shipments.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'shipments.actions.delete', :default=>['Remove This Shipment']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== TestType Pages ====== -->
+
+<def tag="index-page" for="TestType">
+  <page merge title="#{ht 'test_types.index.title', :default=>['Test Types'] }">
+    <body: class="index-page test-type" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="test_types.index.heading">
+            Test Types
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="test_types.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="test_types.actions.new">New Test Type</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="TestType">
+  <page merge title="#{ht 'test_types.new.title', :default=>[' New Test Type'] }">
+    <body: class="new-page test-type" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="test_types.new.heading">
+            New Test Type
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'test_types.actions.create', :default=>['Create Test Type']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="TestType">
+  <page merge title="#{ht 'test_types.show.title', :default=>['Test Type'] }">
+
+    <body: class="show-page test-type" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:sample_type param="parent-link">&laquo; <ht key="test_types.actions.back" to="sample_type"><name/></ht></a:sample_type>
+            <h2 param="heading">
+              <ht key="test_types.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="test_types.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Test Type
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="TestType">
+  <page merge title="#{ht 'test_types.edit.title', :default=>['Edit Test Type'] }">
+
+    <body: class="edit-page test-type" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="test_types.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'test_types.actions.delete', :default=>['Remove This Test Type']}" param/>
       </section>
 
       <section param="content-body">
@@ -446,6 +972,8 @@
     <body: class="show-page trial" param/>
 
     <content: param>
+      <section-group>
+        <section param="main-content">
           <header param="content-header">
             <h2 param="heading">
               <ht key="trials.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
@@ -464,7 +992,29 @@
 
           <section param="content-body">
             <field-list fields="opening, closing" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="trials.collection.heading.other" >
+                  Shipments
+                </ht>
+              </h3>
+
+              <collection:shipments param/>
+            </section>
           </section>
+        </section>
+
+        <aside param>
+          <section param="samples-collection-section">
+            <h3 param="samples-collection-heading">
+              <ht key="samples.collection.heading.other" >
+                Samples
+              </ht>
+            </h3>
+            <collection:samples  param="samples-collection"/>
+          </section>
+        </aside>
+      </section-group>
     </content:>
 
   </page>

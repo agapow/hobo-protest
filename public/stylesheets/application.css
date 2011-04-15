@@ -110,6 +110,12 @@
   padding-top: 0px;
   padding-left: 4px;
 }
+div.aside {
+  margin-left: 20px;
+  border-spacing: 20px;
+  display: block;
+  float: right;
+}
 .flash-geometry {
   background: #f5a9a9;
   margin: 15px 48px;

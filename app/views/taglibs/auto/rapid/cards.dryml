@@ -5,6 +5,11 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="shipments.collection.count" count="&this.shipments.size">
+         <count:shipments param/>
+      </ht>
+    </body:>
   </card>
 </def>
 
@@ -32,11 +37,58 @@
   </card>
 </def>
 
+<def tag="card" for="SampleResult">
+  <card class="sample-result" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+  </card>
+</def>
+
+<def tag="card" for="SampleType">
+  <card class="sample-type" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <ht key="test_types.collection.count" count="&this.test_types.size">
+         <count:test_types param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="Shipment">
+  <card class="shipment" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <ht key="sample_results.collection.count" count="&this.sample_results.size">
+         <count:sample_results param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="TestType">
+  <card class="test-type" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+  </card>
+</def>
+
 <def tag="card" for="Trial">
   <card class="trial" param="default" merge>
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="shipments.collection.count" count="&this.shipments.size">
+         <count:shipments param/>
+      </ht>
+    </body:>
   </card>
 </def>
 

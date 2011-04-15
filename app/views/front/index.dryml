@@ -4,7 +4,7 @@
 
   <content:>
     <header class="content-header">
-      <h2>Welcome to <app-name/></h2>
+      <h2>FMDV Proficiency testing portal</h2>
       <section class="welcome-message">
         <% if User.count == 0 -%>
           <h3 style="margin-top: 20px;">There are no user accounts - please provide the details of the site administrator</h3>
@@ -35,8 +35,12 @@
         <h3>I am an administrator</h3>
         <ul>
           <li><a with="&Trial">Browse and edit trials</a></li>
-          <li><a href="/tools">Use the adminstrative tools</a></li>
+          <li><a href="/tools">Use the administrative tools</a></li>
         </ul> 
+        <ul>
+          <li><a with="&Panel">Browse and edit the panel types</a></li>
+          <li><a with="&SampleType">Browse and edit the sample types</a></li>
+        </ul>
       </div>
       
     </section>

@@ -1,0 +1,14 @@
+<%#
+Customize the appearance of a trial card.
+
+Want it to show the dates as well.
+%>
+<extend tag="card" for="Trial">
+	<old-card  merge>
+		 <body: param>
+			<%= this.state.capitalize %>.
+			<%= this.samples.count %> samples.
+			<%= this.shipments.count %> shipments to participating laboratories.
+		</body:>
+	</old-card>
+</extend>

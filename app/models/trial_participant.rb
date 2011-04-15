@@ -6,8 +6,8 @@ class TrialParticipant < ActiveRecord::Base
     timestamps
   end
 
-   belongs_to :trial
-   belongs_to :lab, :class_name => "Lab"
+   #belongs_to :trial
+   #belongs_to :lab, :class_name => "Lab"
 
   # --- Permissions --- #
 

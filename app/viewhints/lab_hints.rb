@@ -8,5 +8,5 @@ class LabHints < Hobo::ViewHints
 		:short_name => "An id or abbreviation to be used on labels or in tables."
 	})
 	
-	# children :primary_collection1, :aside_collection1, :aside_collection2
+	children :shipments, :members
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323185935) do
+ActiveRecord::Schema.define(:version => 20110324140048) do
 
   create_table "lab_members", :force => true do |t|
     t.datetime "created_at"
@@ -40,25 +40,73 @@ ActiveRecord::Schema.define(:version => 20110323185935) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "short_name"
+  end
+
+  create_table "sample_results", :force => true do |t|
+    t.string   "title"
+    t.float    "result"
+    t.string   "outcome"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "shipment_id"
+    t.integer  "sample_id"
+  end
+
+  add_index "sample_results", ["sample_id"], :name => "index_sample_results_on_sample_id"
+  add_index "sample_results", ["shipment_id"], :name => "index_sample_results_on_shipment_id"
+
+  create_table "sample_types", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "units"
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "samples", :force => true do |t|
     t.string   "title"
-    t.text     "description"
-    t.text     "note"
+    t.string   "description"
+    t.string   "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sample_type_id"
+    t.integer  "panel_id"
+    t.integer  "trial_id"
+    t.float    "result"
+    t.string   "outcome"
   end
 
-  create_table "trial_participants", :force => true do |t|
+  add_index "samples", ["panel_id"], :name => "index_samples_on_panel_id"
+  add_index "samples", ["sample_type_id"], :name => "index_samples_on_sample_type_id"
+  add_index "samples", ["trial_id"], :name => "index_samples_on_trial_id"
+
+  create_table "shipments", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trial_id"
     t.integer  "lab_id"
+    t.string   "title"
   end
 
-  add_index "trial_participants", ["lab_id"], :name => "index_trial_participants_on_lab_id"
-  add_index "trial_participants", ["trial_id"], :name => "index_trial_participants_on_trial_id"
+  add_index "shipments", ["lab_id"], :name => "index_shipments_on_lab_id"
+  add_index "shipments", ["trial_id"], :name => "index_shipments_on_trial_id"
+
+  create_table "test_types", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sample_type_id"
+  end
+
+  add_index "test_types", ["sample_type_id"], :name => "index_test_types_on_sample_type_id"
+
+  create_table "trial_participants", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "trials", :force => true do |t|
     t.string   "title"

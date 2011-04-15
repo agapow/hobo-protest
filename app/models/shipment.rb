@@ -1,27 +1,31 @@
-class Panel < ActiveRecord::Base
+class Shipment < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-		title       :string, :required, :unique
-		short_name  :string, :unique
-		description :text
-		note        :text
-		timestamps
+	title :string
+    timestamps
   end
+
+	belongs_to(:trial)
+	belongs_to(:lab)
+	has_many(:sample_results, :accessible => true, :dependent => :destroy)
+
+  # --- Permissions --- #
 
 	## ACCESSORS:
 	
 	def name
-		if short_name.blank?
-			return title.blank? ? id.to_s() : title
+		if title.blank?
+			if lab_id
+				return "#{id} (#{lab.name})"
+			else
+				return "#{id}"
+			end
 		else
-			return short_name
+			return title
 		end
 	end
-	
-	
-  # --- Permissions --- #
 
   def create_permitted?
     acting_user.administrator?

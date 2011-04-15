@@ -18,10 +18,14 @@ class Trial < ActiveRecord::Base
    #   :class_name => "User")
 
    # each trial can have several labs invited to it
-   has_many(:trial_participants, :dependent => :destroy)
-   has_many(:participating_labs, :through => :trial_participants,
-      :accessible => true, :class_name => "Lab")
+   #has_many(:trial_participants, :dependent => :destroy)
+   #has_many(:participating_labs, :through => :trial_participants,
+   #   :accessible => true, :class_name => "Lab")
    
+	has_many(:samples, :accessible => true, :dependent => :destroy)
+	has_many(:shipments, :accessible => true, :dependent => :destroy)
+	
+	
    ## Accessors:
    
    # Each trial can have many supervisors via the parent trial series
@@ -51,7 +55,7 @@ class Trial < ActiveRecord::Base
       now = Time.now
       if now < opening
          return :pending
-      elsif now < closed
+      elsif now < closing
          return :open
       else
          return :closed
