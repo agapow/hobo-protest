@@ -8,7 +8,7 @@ class TestType < ActiveRecord::Base
     timestamps
   end
 
-	belongs_to(:sample_type)
+	has_many(:panels)
 
 
   # --- Permissions --- #

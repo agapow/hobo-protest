@@ -10,6 +10,8 @@ class Panel < ActiveRecord::Base
 		timestamps
   end
 
+	belongs_to :test_type
+
 	## ACCESSORS:
 	
 	def name

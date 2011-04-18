@@ -117,7 +117,7 @@ basically we just get rid of the label and provide a ghost suggestion.
 			# informal name for objects you're creating
 			name ||= "records"
 			# where to submit form to
-			action ||= "."
+			action ||= ""
 			# do we have a template?
 			template ||= "def.xlsx"
 

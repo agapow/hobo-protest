@@ -11,6 +11,7 @@ class Lab < ActiveRecord::Base
     region         :string
     postal_code    :string, :limit => 16
     country        :string
+    contact        :email_address
     timestamps
   end
 
@@ -22,6 +23,11 @@ class Lab < ActiveRecord::Base
    #has_many(:trials, :through => :trial_participants)
 	
 	has_many(:shipments)
+
+	# MUTATORS
+	def bulkupload(spreadsheet, dryrun, overwrite)
+		print "I'm in bulkupload"
+	end
 
   # --- Permissions --- #
 

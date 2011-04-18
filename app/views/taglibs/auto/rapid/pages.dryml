@@ -9,7 +9,7 @@
     <nav-item with="&Panel"><ht key="panels.nav_item">Panels</ht></nav-item>
     <nav-item with="&Sample"><ht key="samples.nav_item">Samples</ht></nav-item>
     <nav-item with="&SampleResult"><ht key="sample_results.nav_item">Sample Results</ht></nav-item>
-    <nav-item with="&SampleType"><ht key="sample_types.nav_item">Sample Types</ht></nav-item>
+    <nav-item with="&Shipment"><ht key="shipments.nav_item">Shipments</ht></nav-item>
   </navigation>
 </def>
 
@@ -103,7 +103,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country" param/>
+            <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country, contact" param/>
             <section param="collection-section">
               <h3 param="collection-heading">
                 <ht key="labs.collection.heading.other" >
@@ -117,13 +117,13 @@
         </section>
 
         <aside param>
-          <section param="members-collection-section">
-            <h3 param="members-collection-heading">
-              <ht key="members.collection.heading.other" >
-                Members
+          <section param="users-collection-section">
+            <h3 param="users-collection-heading">
+              <ht key="users.collection.heading.other" >
+                Users
               </ht>
             </h3>
-            <collection:members  param="members-collection"/>
+            <collection:users  param="users-collection"/>
           </section>
         </aside>
       </section-group>
@@ -246,7 +246,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="title, short_name, note" param/>
+            <field-list fields="title, short_name, note, test_type" param/>
           </section>
     </content:>
 
@@ -402,136 +402,6 @@
 
 
 
-<!-- ====== SampleType Pages ====== -->
-
-<def tag="index-page" for="SampleType">
-  <page merge title="#{ht 'sample_types.index.title', :default=>['Sample Types'] }">
-    <body: class="index-page sample-type" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="sample_types.index.heading">
-            Sample Types
-          </ht>
-        </h2>
-
-        <p param="count" if>
-          <ht key="sample_types.collection.count" count="&this.size">
-            There <count prefix="are"/>
-          </ht>
-        </p>
-      </header>
-
-      <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="sample_types.actions.new">New Sample Type</ht>
-        </a>
-
-        <page-nav param="top-page-nav"/>
-
-        <collection param/>
-
-        <page-nav param="bottom-page-nav"/>
-
-
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="new-page" for="SampleType">
-  <page merge title="#{ht 'sample_types.new.title', :default=>[' New Sample Type'] }">
-    <body: class="new-page sample-type" param/>
-
-    <content: param>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="sample_types.new.heading">
-            New Sample Type
-          </ht>
-        </h2>
-      </section>
-
-      <section param="content-body">
-        <form param>
-          <submit: label="#{ht 'sample_types.actions.create', :default=>['Create Sample Type']}"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="show-page" for="SampleType">
-  <page merge title="#{ht 'sample_types.show.title', :default=>['Sample Type'] }">
-
-    <body: class="show-page sample-type" param/>
-
-    <content: param>
-          <header param="content-header">
-            <h2 param="heading">
-              <ht key="sample_types.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
-                <name/>
-              </ht>
-            </h2>
-
-            <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="sample_types.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Sample Type
-              </ht>
-            </a>
-          </header>
-
-          <section param="content-body">
-            <view:description param="description"/>
-            <field-list fields="units, note" param/>
-            <section param="collection-section">
-              <h3 param="collection-heading">
-                <ht key="sample_types.collection.heading.other" >
-                  Test Types
-                </ht>
-              </h3>
-
-              <collection:test_types param/>
-            </section>
-          </section>
-    </content:>
-
-  </page>
-</def>
-
-
-<def tag="edit-page" for="SampleType">
-  <page merge title="#{ht 'sample_types.edit.title', :default=>['Edit Sample Type'] }">
-
-    <body: class="edit-page sample-type" param/>
-
-    <content:>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="sample_types.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
-            Edit <type-name/>
-          </ht>
-        </h2>
-        <delete-button label="#{ht 'sample_types.actions.delete', :default=>['Remove This Sample Type']}" param/>
-      </section>
-
-      <section param="content-body">
-        <form param/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-
-
-
-
 <!-- ====== Sample Pages ====== -->
 
 <def tag="index-page" for="Sample">
@@ -618,7 +488,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="title, result, outcome, note, panel, sample_type, trial" param/>
+            <field-list fields="title, result, outcome, note, panel, trial" param/>
           </section>
     </content:>
 
@@ -852,7 +722,6 @@
 
     <content: param>
           <header param="content-header">
-            <a:sample_type param="parent-link">&laquo; <ht key="test_types.actions.back" to="sample_type"><name/></ht></a:sample_type>
             <h2 param="heading">
               <ht key="test_types.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
@@ -1133,7 +1002,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="user_name, email_address, state" param/>
+            <field-list fields="user_name, email_address, state, lab" param/>
           </section>
     </content:>
 
