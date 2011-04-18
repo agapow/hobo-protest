@@ -102,7 +102,7 @@
             </a>
           </header>
 
-          <section param="content-body">
+          <section param="content-body" with-flash-messages>
             <field-list fields="title, short_name, institute, street_address, locality, region, postal_code, country, contact" param/>
             <section param="collection-section">
               <h3 param="collection-heading">
@@ -859,7 +859,7 @@
             </a>
           </header>
 
-          <section param="content-body">
+          <section param="content-body" with-flash-messages>
             <field-list fields="opening, closing" param/>
             <section param="collection-section">
               <h3 param="collection-heading">

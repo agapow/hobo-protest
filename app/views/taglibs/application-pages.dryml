@@ -47,7 +47,6 @@ XXX: merge without live search?
 		<nav-item href="/docs">Help</nav-item>
 		<%
 			email = Protest::Config.contact_email
-			pp "******email: #{email}"
 		-%>
 		<nav-item href="http://#{Protest::Config.hosted_by_url}">
 			Hosted by <%= Protest::Config.hosted_by_text %>

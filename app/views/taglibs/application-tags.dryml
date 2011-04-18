@@ -124,41 +124,42 @@ basically we just get rid of the label and provide a ghost suggestion.
 		%>
 		<%= this_parent %>
 		<div class="admins-only">
-		<h3>Bulk upload</h3>
-		<p class="description">
-			Create multiple <%= name %> by uploading a spreadsheet in the correct
-			format.
-			<if test="&template">
-				Download an example <a href="/downloads/#{template}">here</a>.
-			</if>
-		</p>
-		
-		<%
-			attrs_hsh = {
-				:action => action,
-				:method => "post",
-			}
-			attrs_hsh[:enctype] = "multipart/form-data"			
-		-%>
-		<form merge-attrs="&attrs_hsh">
-			<table class="field-list">
-				<form-field type="file" name="spreadsheet"
-					help="An Excel (.xls or .xls) file in the described format." />
-				<form-field name="dryrun" title="Dry-run" type="boolean" value="0"
-					help="Test the format of your file, but do not save data." />
-				<form-field name="overwrite" title="Overwrite" type="boolean" value="0"
-					help="Overwrite existing data. This will not destroy records but will change them." />
-			</table>
-			<br clear="all" />
-			<div class="tool-buttons">
-				<input type="submit" name="_submit" value="Upload" label="Upload"
-					class="button submit-button"/>
+			<h3 class="clickable" onclick="$('bulkupload').toggle();">Bulk upload</h3>
+			<%- vis = (request.parameters["submitted"] == "true") ? "block" : "none" %>
+	
+			<div id="bulkupload" style="display:#{vis}">
+				<p class="description">
+					Create multiple <%= name %> by uploading a spreadsheet in the correct
+					format.
+					<if test="&template">
+						Download an example <a href="/downloads/#{template}">here</a>.
+					</if>
+				</p>
+				
+				<%
+					attrs_hsh = {
+						:action => action,
+						:method => "post",
+					}
+					attrs_hsh[:enctype] = "multipart/form-data"			
+				-%>
+				<form merge-attrs="&attrs_hsh">
+					<input type="hidden" name="submitted" value="true" />
+					<table class="field-list">
+						<form-field type="file" name="spreadsheet"
+							help="An Excel (.xls or .xls) file in the described format." />
+						<form-field name="dryrun" title="Dry-run" type="boolean" value="0"
+							help="Test the format of your file, but do not save data." />
+						<form-field name="overwrite" title="Overwrite" type="boolean" value="0"
+							help="Overwrite existing data. This will not destroy records but will change them." />
+					</table>
+					<br clear="all" />
+					<div class="tool-buttons">
+						<input type="submit" name="_submit" value="Upload" label="Upload"
+							class="button submit-button"/>
+					</div>
+				</form>
 			</div>
-		</form>
-				
-				
-
-		
 		</div>
 	</if>
 </def>

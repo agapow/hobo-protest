@@ -11,9 +11,9 @@
 
 ### IMPORTS
 
-require './excel_utils.rb'
 require 'roo'
 require 'pp'
+require 'tempfile.rb'
 
 
 ### CONSTANTS & DEFINES
@@ -45,7 +45,8 @@ DATE_FMTS = [
 ### IMPLEMENTATION ###
 
 module SpreadsheetReader
-
+	public
+	
 	# Test a condition and throw an exception on failure.
 	#
 	# @param            cond      a condition, test or boolean
@@ -207,24 +208,35 @@ module SpreadsheetReader
 	#    rdr = XlsReader('my-excel.xls')
 	#    rdr.read() { |rec| print rec }
 	#
-	class ExcelReader
+	class Reader
 		
 		attr_accessor :wbook, :syn_dict
 		
 		# Initialise the reader.
 		#
-		# @param [String] infile   the path to the spreadsheet to be read in.
+		# @param [String] infile   the Rails file object
 		# @param [Hash] syn_dict   a remapping of column names, to allow synonyms
 		#
 		# @example How to create a reader
-		#    rdr = XlsReader('my-excel.xls')
-		#    rdr = XlsReader('my-excel.xls', {'foo_bar'=> 'foobar'})
+		#    rdr = XlsReader(spreadsheet_file, {'foo_bar'=> 'foobar'})
 		#
 		def initialize(infile, syn_dict={})
-			if (infile[/\.xls$/] != nil)
-				@wbook = Excel.new(infile)
-			elsif (infile[/\.xlsx$/] != nil)
-				@wbook = Excelx.new(infile)
+			# you gotta create a file for Roo to read it
+			pp infile.content_type
+			pp infile.local_path
+			pp infile.original_path
+			pp infile.path
+			tmp_file = Tempfile.new(['spreadsheet', '.xls'])
+			tmp_file.write (infile.read())
+			tmp_file.close()
+			# and what's our file name? create the correct reader
+			file_name = infile.original_filename
+			if (file_name[/\.xls$/] != nil)
+				@wbook = Excel.new(tmp_file.path)
+			elsif (file_name[/\.xlsx$/] != nil)
+				@wbook = Excelx.new(infile.path)
+			else
+				raise StandardError, "spreadsheet name must end in '.xls' or 'xslx'"
 			end
 			# NOTE: in roo, you don't select a worksheet, you name the current one
 			@wbook.default_sheet = wbook.sheets.first
@@ -286,8 +298,11 @@ module SpreadsheetReader
 				@wbook.cell(1,j)
 			}
 			# drop case, strip flanking spaces, replace gaps with underscores
+			pp @syn_dict
 			return headers.collect { |h|
-				h_str = h.downcase.strip.gsub(' ', '_')
+				h_str = h.downcase.strip.gsub(' ', '_').to_sym()
+				pp h_str
+				pp @syn_dict.fetch(h_str, h_str)
 				@syn_dict.fetch(h_str, h_str)
 			}
 		end

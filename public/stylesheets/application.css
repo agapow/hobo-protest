@@ -244,6 +244,7 @@ input[type="reset"]:hover {
   background: white;
   cursor: pointer;
 }
+.clickable { cursor: pointer; }
 .submit-button {
   padding: 5px;
   color: white;
