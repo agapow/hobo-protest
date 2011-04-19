@@ -8,18 +8,19 @@ class LabsController < ApplicationController
 	# if the form has been submitted, try to parse upload
 	req_params = request.parameters
 	if req_params["submitted"] == "true"
+		dryrun = req_params["dryrun"] == "1"
+		spreadsheet = req_params["spreadsheet"]
 		begin
 			# check the params
-			spreadsheet = req_params["spreadsheet"]
 			if ! spreadsheet
 				raise StandardError, "No spreadsheet attached."
 			end
 			# do the work
-			Lab.bulkupload(spreadsheet, req_params["dryrun"],
-				req_params["overwrite"])
+			Lab.bulkupload(spreadsheet, dryrun)
 			# appropriately report good result
-			if req_params["dryrun"] == "1"
-				flash[:success] = "The spreadsheet format appears fine."
+			if dryrun
+				flash[:success] = "The spreadsheet format appears fine. Records do not
+					duplicate or overwrite any pre-existing."
 			else
 				flash[:success] = "The list of labs was updated sucessfully."
 			end

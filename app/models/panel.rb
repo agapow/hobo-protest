@@ -10,7 +10,8 @@ class Panel < ActiveRecord::Base
 		timestamps
   end
 
-	belongs_to :test_type
+  has_many :panel_test_types
+  has_many :test_types, :through => :panel_test_types, :accessible => true
 
 	## ACCESSORS:
 	

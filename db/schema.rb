@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110418180211) do
+ActiveRecord::Schema.define(:version => 20110419130320) do
 
   create_table "labs", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20110418180211) do
     t.string   "contact"
   end
 
+  create_table "panel_test_types", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "panel_id"
+    t.integer  "test_type_id"
+  end
+
+  add_index "panel_test_types", ["panel_id"], :name => "index_panel_test_types_on_panel_id"
+  add_index "panel_test_types", ["test_type_id"], :name => "index_panel_test_types_on_test_type_id"
+
   create_table "panels", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -32,10 +42,7 @@ ActiveRecord::Schema.define(:version => 20110418180211) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "short_name"
-    t.integer  "test_type_id"
   end
-
-  add_index "panels", ["test_type_id"], :name => "index_panels_on_test_type_id"
 
   create_table "sample_results", :force => true do |t|
     t.string   "title"
@@ -81,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20110418180211) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "units"
   end
 
   create_table "trial_participants", :force => true do |t|

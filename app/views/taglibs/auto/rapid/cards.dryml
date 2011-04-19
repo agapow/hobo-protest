@@ -18,6 +18,19 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="panel_test_types.collection.count" count="&this.panel_test_types.size">
+         <count:panel_test_types param/>
+      </ht>
+    </body:>
+  </card>
+</def>
+
+<def tag="card" for="PanelTestType">
+  <card class="panel-test-type" param="default" merge>
+    <header: param>
+      <h4 param="heading"><name/></h4>
+    </header:>
   </card>
 </def>
 

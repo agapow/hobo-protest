@@ -1,3 +1,6 @@
+<%#
+Page overrides or tags for every page.
+%>
 
 <%#
 Change the overall page layout.
@@ -27,15 +30,24 @@ XXX: merge without live search?
 </extend>
 
 
+<%#
+The nagigation bar for every page.
+
+Logged-in users are shown links to home, labs and trials. Admins are linked
+to users and tools as well.
+%>
 <def tag="main-nav">
 	<navigation class="main-nav" merge-attrs param="default">
 		<nav-item href="#{base_url}/">Home</nav-item>
-
 		<nav-item repeat="&[Trial, Lab]" with="&this">
 			<%= this.view_hints.model_name_plural %>
 		</nav-item>
-
-		<nav-item href="#{base_url}/tools/">Tools</nav-item>
+		<% if current_user.administrator? %>
+		<nav-item repeat="&[User]" with="&this">
+			<%= this.view_hints.model_name_plural %>
+		</nav-item>
+			<nav-item href="#{base_url}/tools/">Tools</nav-item>
+		<% end %>
 		<li><live-search if="&defined_route? :site_search" /></li>
 	</navigation>
 </def>

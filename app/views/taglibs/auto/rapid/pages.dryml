@@ -246,7 +246,16 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="title, short_name, note, test_type" param/>
+            <field-list fields="title, short_name, note" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="panels.collection.heading.other" >
+                  Panel Test Types
+                </ht>
+              </h3>
+
+              <collection:panel_test_types param/>
+            </section>
           </section>
     </content:>
 
@@ -739,6 +748,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
+            <field-list fields="title" param/>
           </section>
     </content:>
 

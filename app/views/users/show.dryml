@@ -23,16 +23,10 @@ NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
 	 <div>
 		<ex-gravatar style="float: left; margin: 10px 20px 10px 0" />
 		<div style="float: left">
-		  <field-list fields="user_name, email_address, administrator, state" />
+		  <field-list fields="user_name, email_address, administrator, state, lab" />
 		</div>
 	 </div>
 	 <br clear="all"/>
   </content-body:>
 
-<!--<collection-section:>
-  <p if test="&0 < this.countries.count">
-  Member of <view:countries />
-  </p>
-  <field-list fields="user_name, email_address, countries" />
-</collection-section:>-->	
 </show-page>

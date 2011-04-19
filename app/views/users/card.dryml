@@ -15,9 +15,9 @@ TODO: include gravatar
 				<h4 param="heading"><a><name/></a></h4>
 			 </header:>
 			 <body: param>
-				<!--<if test="&0 < this.countries.count">-->
-				<!--  Member of <view:countries />-->
-				<!--</if>-->
+				<if test="&this.lab">
+				  Member of <view:lab />
+				</if>
 		   </body:>
 		  </div>
 		</div>
@@ -26,11 +26,3 @@ TODO: include gravatar
   </old-card>
 </extend>
 
-
-<def tag="card" for="User">
-  <card class="user" param="default" merge>
-    <header: param>
-      <h4 param="heading"><a><name/></a></h4>
-    </header:>
-  </card>
-</def>

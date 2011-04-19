@@ -1,3 +1,7 @@
+require "spreadsheet_reader.rb"
+require "protest_utils.rb"
+require "pp"
+
 class User < ActiveRecord::Base
 	
 	hobo_user_model # Don't put anything above this
@@ -12,6 +16,102 @@ class User < ActiveRecord::Base
 	
 	belongs_to :lab, :accessible => true
 
+
+	## MUTATORS:
+	# MUTATORS
+	def self.bulkupload(spreadsheet, dryrun)
+		## Preconditions:
+		if ! spreadsheet
+			flash[:error] = "No spreadsheet attached."
+			return
+		end
+		## Main:
+		# 1. read data & fill-in, check for obvious errors
+		synonyms = {
+			:user => :name,
+			:id => :user_name,
+			:short_name => :user_name,
+			:email => :email_address
+		}
+		rdr = SpreadsheetReader::Reader.new(spreadsheet, synonyms)
+		row_no = 0
+		missing_required = []
+		existing_users = []
+		unknown_labs = []
+		checked_recs = []
+		rdr.read { |row|
+			pp row
+			pp row_no
+			row_no += 1
+			
+			# validate: there must be a name
+			if ! row[:name]
+				missing_required << row_no
+				break
+			end
+			if ! row[:email_address]
+				missing_required << row_no
+				break
+			end
+			
+			# fillin: make sure there's an user_name
+			if ! row[:user_name]
+				row[:user_name] = ProtestUtils.str_to_id (row[:name])
+			end
+			
+			# check: are there records already for this?
+			if ! User.name_is(row[:name]).empty?
+				existing_users << row[:name]
+			end
+			if ! self.user_name_is(row[:user_name]).empty?
+				existing_users << row[:user_name]
+			end
+			
+			# link
+			if ! row[:lab].nil?
+				my_lab = Lab.find_by_short_name(row[:lab])
+				if my_lab.nil?
+					unknown_labs << row[:lab]
+				else
+					row[:lab_id] = my_lab.id
+				end
+			end
+			
+
+			# filter out irrelevant & nil fields to prevent crash or security breach
+			allowed_fields = [
+				:name,
+				:user_name,
+				:email_address,
+				:lab_id
+			]
+			checked_recs << row.reject { |key,value|
+				key.nil? || (! allowed_fields.member?(key))
+			}
+		}
+		
+		# 2. if there are obvious errors
+		error_msgs = []
+		if ! missing_required.empty?
+			error_msgs << "Some users are missing required information: rows #{missing_required.join(', ')}."
+		end
+		if ! existing_users.empty?
+			error_msgs << "Some users are already in use: #{existing_users.join(', ')}."
+		end
+		
+		if ! error_msgs.empty?
+			raise StandardError, error_msgs.join(" ")
+		end
+		
+		# 3. if not a dry run, save these suckers
+		if ! dryrun
+			checked_recs.each { |rec|
+				new_rec = User.new(rec)
+				new_rec.save()
+			}
+		end
+	end
+	
 	## Lifecycles:
 	
 	# This gives admin rights to the first sign-up.

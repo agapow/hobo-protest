@@ -1,0 +1,8 @@
+<extend tag="card" for="TestType">
+	<old-card  merge>
+		<header: param>
+		  <h4 param="heading"><a><name/></a></h4>
+		</header:>
+		<body: replace></body:>
+	</old-card>
+</extend>

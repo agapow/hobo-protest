@@ -29,15 +29,16 @@ class Lab < ActiveRecord::Base
 	has_many(:shipments)
 
 	# MUTATORS
-	def self.bulkupload(spreadsheet, dryrun, overwrite)
+	def self.bulkupload(spreadsheet, dryrun)
 		## Preconditions:
 		if ! spreadsheet
 			flash[:error] = "No spreadsheet attached."
 			return
 		end
 		## Main:
+		# 1. read data & fill-in, check for obvious errors
 		synonyms = {
-			:name => :name,
+			:name => :title,
 			:id => :short_name,
 			:address => :street_address,
 			:postcode => :postal_code,
@@ -47,51 +48,76 @@ class Lab < ActiveRecord::Base
 			:email => :contact,
 			:contact_email => :contact
 		}
-		
 		rdr = SpreadsheetReader::Reader.new(spreadsheet, synonyms)
 		row_no = 0
-		missing_names = []
+		missing_titles = []
+		existing_titles = []
+		existing_short_names = []
+		checked_recs = []
 		rdr.read { |row|
-			pp row
-			pp row_no
 			row_no += 1
-			is_valid = true
-			# validate: there must be a name
-			if ! row[:name]
-				missing_names << row_no
-				is_valid = false
+			# required fields: there must be a name
+			if ! row[:title]
+				missing_titles << row_no
+				# for later checks
+				row[:title] = ''
+				break
 			end
+			# fillin: make sure there's an id
 			if ! row[:short_name]
-				row[:short_name] = ProtestUtils.str_to_id (row[:name])
+				row[:short_name] = ProtestUtils.str_to_id (row[:title])
+			end
+			# duplicates: are there records already for this?
+			if ! Lab.short_name_is(row[:short_name]).empty?
+				existing_titles << row[:short_name]
+			end
+			if ! self.title_is(row[:title]).empty?
+				existing_titles << row[:title]
 			end
 			
-			if is_valid and ! dryrun
-				# do the saving
-				# filter for non-nil fields
-				fields = row.reject {|k,v| v.nil?}
-				# fetch record & check for overwrite
-				rec = Lab.new()
-			end
-			pp row
-			pp fields
-
+			# filter out irrelevant & nil fields to prevent crash or security breach
+			allowed_fields = [
+				:title,
+				:short_name,
+				:institute,
+				:street_address,
+				:locality,
+				:region,
+				:postal_code,
+				:country,
+				:contact
+			]
+			checked_recs << row.reject { |key,value|
+				key.nil? || (! allowed_fields.member?(key))
+			}
 		}
-		if ! missing_names.empty?
-			raise StandardError, "some labs are missing names: #{missing_names.join(' ')}"
+		
+		# 2. if there are any errors, produce error message and throw
+		error_msgs = []
+		if ! missing_titles.empty?
+			error_msgs << "Some labs are missing names: #{missing_titles.join(', ')}."
+		end
+		if ! existing_titles.empty?
+			error_msgs << "Some lab names or short names are already in use: #{existing_titles.join(', ')}."
 		end
 		
+		if ! error_msgs.empty?
+			raise StandardError, error_msgs.join(" ")
+		end
+		
+		# 3. if you reached here and if not a dry run, save these suckers
+		if ! dryrun
+			checked_recs.each { |rec|
+				new_rec = Lab.new(rec)
+				new_rec.save()
+			}
+		end
 	end
 
 	# --- Permissions --- #
 
 	def name
-		if ! short_name.blank?
-			return short_name
-		elsif ! title.blank?
-			return title
-		else
-			return id.to_s
-		end
+		return "#{title} (#{short_name})"
 	end
 
 	def create_permitted?

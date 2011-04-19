@@ -4,12 +4,18 @@ class TestType < ActiveRecord::Base
 
   fields do
     title       :string
+    units       :string
     description :string
     timestamps
   end
 
-	has_many(:panels)
+  has_many(:panel_test_types)
+  has_many :panels, :through => :panel_test_types
 
+  ## ACCESSORS
+  def name
+	 return title
+  end
 
   # --- Permissions --- #
 

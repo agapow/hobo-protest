@@ -15,7 +15,7 @@
 <def tag="form" for="Panel">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, short_name, description, note, test_type" param/>
+    <field-list fields="title, short_name, description, note, test_types" param/>
     <div param="actions">
       <submit label="#{ht 'panels.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

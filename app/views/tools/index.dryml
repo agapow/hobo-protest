@@ -4,23 +4,15 @@
 
   <content:>
     <header class="content-header">
-      <h2>Tools</h2>
+      <h2>Administrative Tools</h2>
     </header>
 
     <section class="content-body">
       <p class="description">Utilities for manipulating and searching the
       database.</p>
-
-      <ul>
-        <li><a href="">foo</a></li>
-      </ul>
-      
-      
-
       
 		<% if current_user.administrator? %>
 			<!-- provide quick links to editting -->
-			<h3>Administrative tools</h3> 
 			
           <p class="warning">Beware, this edits the raw data in the system, with
           only a few checks and validations. You break it, you fix it.</p>
@@ -29,7 +21,7 @@
 				
 				<ul>
 					<%-
-						link_list = [TrialSeries, Trial]
+						link_list = [Trial, Sample, Shipment]
 					%>
 					<nav-item repeat="&link_list" with="&this">
 						<%= this.view_hints.model_name_plural %>
@@ -40,7 +32,7 @@
 				
 				<ul>
 					<%-
-						link_list = []
+						link_list = [TestType, Panel]
 					%>
 					<nav-item repeat="&link_list" with="&this">
 						<%= this.view_hints.model_name_plural %>
@@ -58,7 +50,8 @@
 					</nav-item>
 				</ul>
 
-				
+		<% else %>
+      <p>You do not have access to this page.</p>
 		<% end %>
       
     </section>

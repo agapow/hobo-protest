@@ -17,6 +17,8 @@
 
 <%# include card definitions from individual models %>
 <include src="users/card" />
+<include src="labs/card" />
 <include src="trials/card" />
 <include src="shipments/card" />
+<include src="test_types/card" />
 

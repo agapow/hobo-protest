@@ -147,11 +147,11 @@ basically we just get rid of the label and provide a ghost suggestion.
 					<input type="hidden" name="submitted" value="true" />
 					<table class="field-list">
 						<form-field type="file" name="spreadsheet"
-							help="An Excel (.xls or .xls) file in the described format." />
+							help="An Excel (.xls or .xlsx) file in the described format." />
 						<form-field name="dryrun" title="Dry-run" type="boolean" value="0"
 							help="Test the format of your file, but do not save data." />
-						<form-field name="overwrite" title="Overwrite" type="boolean" value="0"
-							help="Overwrite existing data. This will not destroy records but will change them." />
+						<!--<form-field name="overwrite" title="Overwrite" type="boolean" value="0"-->
+						<!--	help="Overwrite existing data. This will not destroy records but will change them." />-->
 					</table>
 					<br clear="all" />
 					<div class="tool-buttons">
