@@ -21,4 +21,5 @@
 <include src="trials/card" />
 <include src="shipments/card" />
 <include src="test_types/card" />
+<include src="panel_test_types/card" />
 

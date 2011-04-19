@@ -748,7 +748,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="title" param/>
+            <field-list fields="title, units" param/>
           </section>
     </content:>
 

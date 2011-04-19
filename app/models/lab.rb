@@ -28,6 +28,8 @@ class Lab < ActiveRecord::Base
 	
 	has_many(:shipments)
 
+  set_default_order :title
+
 	# MUTATORS
 	def self.bulkupload(spreadsheet, dryrun)
 		## Preconditions:

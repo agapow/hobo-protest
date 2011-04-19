@@ -1,0 +1,6 @@
+<def tag="card" for="PanelTestType">
+	<%= this.test_type.name %>
+	<div field="test_type">
+		<card />
+	</div>
+</def>

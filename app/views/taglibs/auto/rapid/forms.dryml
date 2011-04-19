@@ -63,7 +63,7 @@
 <def tag="form" for="TestType">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, description" param/>
+    <field-list fields="title, units, description" param/>
     <div param="actions">
       <submit label="#{ht 'test_types.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

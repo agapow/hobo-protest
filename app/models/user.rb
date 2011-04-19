@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
 	
 	belongs_to :lab, :accessible => true
 
+  set_default_order :user_name
 
 	## MUTATORS:
-	# MUTATORS
 	def self.bulkupload(spreadsheet, dryrun)
 		## Preconditions:
 		if ! spreadsheet

@@ -12,6 +12,8 @@ class TestType < ActiveRecord::Base
   has_many(:panel_test_types)
   has_many :panels, :through => :panel_test_types
 
+  set_default_order :title
+
   ## ACCESSORS
   def name
 	 return title
