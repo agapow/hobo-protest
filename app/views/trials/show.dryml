@@ -6,6 +6,13 @@ Customize the appearance of a page showing a single trial.
   <prepend-content-body:>
 		<p class="description"><%= this.state.capitalize %>.</p>
   </prepend-content-body:>
-	
+  
+  <after-collection:>
+		<p />
+		<bulk-upload-form name="samples" template="upload-samples-template.xls" clickable="&false" />
+		<p />
+		<bulk-upload-form name="shipments" template="upload-shipments-template.xls" clickable="&false" />
+  </after-collection:>
+
 </show-page>
 

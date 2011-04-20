@@ -6,9 +6,9 @@
 
 <set-theme name="simplegreen"/>
 
-<def tag="app-name">Testbed</def>
+<def tag="app-name"><%= Protest::Config.site_title %></def>
 
-<def tag="app-subtitle">This is a subtitle<!--Proficiency testing portal for FMDV--></def>
+<def tag="app-subtitle"><%= Protest::Config.site_subtitle %></def>
 
 <%# features and tags for all pages %>
 <include src="taglibs/application-pages" />
@@ -22,4 +22,7 @@
 <include src="shipments/card" />
 <include src="test_types/card" />
 <include src="panel_test_types/card" />
+
+<%# tool stuff %>
+<include src="tools/toolpage" />
 

@@ -1,0 +1,90 @@
+
+
+<%#
+The page for a tool form.
+
+This includes the overall page layout, and the content including the
+front-matter (the title and leading description), and slots for the results
+and the form. Each individual result and the actual form fields are rendered
+elsewhere.
+
+
+%>
+<def tag="toolpage" attrs="toolform, method, title, description">
+	<%-
+		title ||= "Protest tool"
+		form_method = "POST"
+		enctype_multipart = true
+		has_reset_button = true
+	%>
+	<page title="&title" merge-attrs>
+		<content:>
+			<p>&laquo; <a href="." class="discrete">Back to all tools</a></p>
+
+			<h2 param="title"><%= title %></h2>
+		
+			<%# pre-ramble %>
+			<p param="description"><%= description %></p>
+			
+			<flash-messages />
+			
+			<%#
+			If there are results, put them here. If non-nil, are responding to
+			submission & there's something to render. Else, this is a first view.
+			%>
+			<% results = session[:results] %>
+			<if test="&!results.nil?">
+				<div class="tool-results">
+					<h3>Results</h3>
+						<%
+							# put results in array to render one by one
+							# Zero-length array means no results.
+							# TODO: stick null result message (and success) into flash?
+							if results.class != Array
+								results = [results]
+							end	
+						%>
+						<if test="&results.size == 0">
+							<p param="no-result-message">
+								No results were returned. Try changing criteria or broadening
+								parameters.
+							</p>
+						</if>
+						<else>
+							<tool-result repeat="&results" />
+						</else>
+				</div>
+			</if>
+			
+			<%# put the form here %>
+			<div class="tool-form">
+				<%
+					attrs_hsh = {
+						:action => "",
+						:method => form_method,
+					}
+					if enctype_multipart
+						attrs_hsh[:enctype] = "multipart/form-data"
+					end
+					
+				-%>
+				<form merge-attrs="&attrs_hsh">
+					<input type="hidden" name="submitted" value="true" />
+					<div param="tool-form-fields">
+						THIS IS WHERE THE FORM FIELDS GO
+					</div>
+					<br clear="all" />
+					<div class="tool-buttons" param="tool-buttons">
+						<input type="submit" name="_submit" value="Submit" label="Submit"
+							class="button submit-button"/>
+						<if test="&has_reset_button">
+							<input type="reset" />
+						</if>
+					</div>
+				</form>
+			</div>
+		
+		</content:>
+	</page>
+</def>
+

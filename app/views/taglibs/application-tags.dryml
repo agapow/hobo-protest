@@ -111,7 +111,7 @@ basically we just get rid of the label and provide a ghost suggestion.
 </def>
 
 
-<def tag="bulk-upload-form" attrs="name, action, template">
+<def tag="bulk-upload-form" attrs="name, action, template, hdr, clickable">
 	<if test="&current_user.administrator?">
 		<%-
 			# informal name for objects you're creating
@@ -120,12 +120,25 @@ basically we just get rid of the label and provide a ghost suggestion.
 			action ||= ""
 			# do we have a template?
 			template ||= "def.xlsx"
-
+			# what to title the form with
+			hdr ||= "Bulk upload of #{name}"
+			# do the hide and so forth
+			#clickable ||= true
 		%>
-		<%= this_parent %>
 		<div class="admins-only">
-			<h3 class="clickable" onclick="$('bulkupload').toggle();">Bulk upload</h3>
-			<%- vis = (request.parameters["submitted"] == "true") ? "block" : "none" %>
+			<% if clickable %>
+				<h3 class="clickable" onclick="$('bulkupload').toggle();"><%= hdr %></h3>
+			<% else %>
+				<h3 class="clickable"><%= hdr %></h3>
+			<% end %>
+			<%-
+				if clickable
+					vis = (request.parameters["submitted"] == "true") ? "block" : "none"
+				else
+					vis = "block"
+				end
+				
+			%>
 	
 			<div id="bulkupload" style="display:#{vis}">
 				<p class="description">
@@ -144,6 +157,7 @@ basically we just get rid of the label and provide a ghost suggestion.
 					attrs_hsh[:enctype] = "multipart/form-data"			
 				-%>
 				<form merge-attrs="&attrs_hsh">
+					<input type="hidden" name="data_type" value="#{name}" />
 					<input type="hidden" name="submitted" value="true" />
 					<table class="field-list">
 						<form-field type="file" name="spreadsheet"

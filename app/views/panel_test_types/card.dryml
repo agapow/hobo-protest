@@ -1,6 +1,10 @@
-<def tag="card" for="PanelTestType">
-	<%= this.test_type.name %>
-	<div field="test_type">
-		<card />
-	</div>
-</def>
+<extend tag="card" for="PanelTestType">
+	<old-card  merge>
+		<header: param>
+		  <h4 param="heading">
+			<a><%= this.test_type.name %><if test="&this.test_type.units"> (<%= this.test_type.units %>)</if></a>
+		  </h4>
+		</header:>
+		<body:><p class="card_body"><%= this.test_type.description %></p></body:>
+	</old-card>
+</extend>

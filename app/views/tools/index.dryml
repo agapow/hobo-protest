@@ -49,6 +49,14 @@
 						<%= this.view_hints.model_name_plural %>
 					</nav-item>
 				</ul>
+            
+            <h4>Trial data</h4>
+				<ul>
+              <li><a href="upload_samples">Upload samples to a trial</a></li>
+              <li><a href="upload_samples">Upload shipments to a trial</a></li>
+              <li><a href="upload_users">Upload users</a></li>
+              <li><a href="upload_labs">Upload samples</a></li>
+				</ul>
 
 		<% else %>
       <p>You do not have access to this page.</p>

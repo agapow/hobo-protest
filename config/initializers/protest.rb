@@ -19,11 +19,11 @@ module Protest
    FOO = "bar"
    
    Config = OpenStruct.new({
-			:site_title => "ProTest",
-			:site_subtitle => "Proficiency testing for XYZ",
-			:hosted_by_text => "Health Protection Agency",
-			:hosted_by_url => "www.hpa.org.uk",
-			:contact_email => "pma@agapow.net"
+		:site_title => "ProTest",
+		:site_subtitle => "Proficiency testing for FMDV",
+		:hosted_by_text => "IAH",
+		:hosted_by_url => "iah.ac.uk",
+		:contact_email => "yanmin.li@bbsrc.ac.uk"
    })
 
 end

@@ -1,0 +1,22 @@
+<toolpage>
+	<title:>Upload shipments to trial</title:>
+	
+	<description:>
+	Pick a trial and create multiple shipments for that trial
+	by uploading a spreadsheet in the correct format.
+	Download an example spreadsheet <a href="/downloads/upload-shipments-template.xls">here</a>.
+	</description:>
+	
+	<tool-form-fields:>
+		<table class="field-list">
+			<form-field name="trial" type="selectone"
+				options="&Trial.all().collect { |c| [c.title, c.id] }"
+				help="Which trial are these shipments associated with?" />
+			<form-field type="file" name="spreadsheet"
+				help="An Excel (.xls or .xlsx) file in the described format." />
+			<form-field name="dryrun" title="Dry-run" type="boolean" value="0"
+				help="Test the format of your file, but do not save data." />
+		</table>
+	</tool-form-fields>
+
+</toolpage>
